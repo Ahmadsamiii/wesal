@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="وصال — منصة ذكاء اصطناعي مُيسّرة لمساعدة الأشخاص ذوي الإعاقة في الوصول إلى المعرفة">
+<title>وصال — رفيقك الذكي للوصول إلى المعرفة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:'GE SS Two';font-weight:300;font-style:normal;src:local('GE SS Two Light'),local('GESSTwoLight');}
+@font-face{font-family:'GE SS Two';font-weight:500;font-style:normal;src:local('GE SS Two Medium'),local('GESSTwoMedium');}
+@font-face{font-family:'GE SS Two';font-weight:700;font-style:normal;src:local('GE SS Two Bold'),local('GESSTwoBold');}
+:root{
+--primary:#282692;--secondary:#814fc3;--tertiary:#5039a8;--navy:#20134f;--blue:#3e9eed;--sky:#52bdf9;
+--white:#ffffff;--bg:#f8f6fd;--surface:#ffffff;--surface-alt:#f1eef8;--border:#e4ddf0;--muted:#8a7fa3;--text:#3d3558;--ink:#1a1632;
+--f-display:clamp(2.25rem,5vw,3.5rem);--f-h1:clamp(1.75rem,3.5vw,2.75rem);--f-h2:clamp(1.375rem,2.5vw,2rem);--f-h3:clamp(1.125rem,2vw,1.5rem);--f-body:1rem;--f-sm:0.875rem;--f-xs:0.75rem;
+--s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:20px;--s6:24px;--s8:32px;--s10:40px;--s12:48px;--s16:64px;--s20:80px;--s24:96px;
+--sh-xs:0 1px 2px rgba(40,38,146,.04);--sh-sm:0 1px 3px rgba(40,38,146,.04),0 4px 12px rgba(40,38,146,.06);--sh-md:0 2px 4px rgba(40,38,146,.04),0 8px 24px rgba(40,38,146,.08);--sh-lg:0 4px 8px rgba(40,38,146,.04),0 16px 40px rgba(40,38,146,.12);--sh-glow:0 0 40px rgba(129,79,195,.15);
+--r-sm:8px;--r-md:12px;--r-lg:16px;--r-xl:24px;--r-2xl:32px;--r-full:9999px;
+--g-brand:linear-gradient(135deg,#814fc3 0%,#5039a8 40%,#282692 100%);--g-hero:linear-gradient(160deg,#12103a 0%,#1a1560 20%,#282692 45%,#4a35a8 70%,#6b42bc 85%,#814fc3 100%);--g-glass:linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.02));--g-card:linear-gradient(180deg,rgba(255,255,255,.95),rgba(248,246,253,.8));--g-accent:linear-gradient(135deg,#52bdf9 0%,#3e9eed 100%);
+--ease:cubic-bezier(.4,0,.2,1);--ease-out:cubic-bezier(0,0,.2,1);--ease-spring:cubic-bezier(.175,.885,.32,1.275);--dur:.2s;--dur-md:.35s;--dur-lg:.5s;
+--f-scale:100;
+}
+[data-contrast="high"]{--bg:#fff;--surface:#f5f5f5;--border:#999;--muted:#333;--text:#111;--ink:#000;}
+[data-contrast="dark"]{--bg:#0f0d1a;--surface:#1a1730;--surface-alt:#221f38;--border:#2d2950;--muted:#7a6e9a;--text:#c8bfe0;--ink:#f0ecf8;}
+[data-reduce-motion="true"] *,[data-reduce-motion="true"] *::before,[data-reduce-motion="true"] *::after{animation-duration:.01ms!important;transition-duration:.01ms!important;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'GE SS Two','Readex Pro',system-ui,sans-serif;color:var(--text);background:var(--bg);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;font-size:calc(var(--f-scale) * 0.01 * 1rem);}
+body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+:focus-visible{outline:3px solid var(--sky);outline-offset:2px;border-radius:var(--r-sm);}
+.skip{position:absolute;top:-100%;right:var(--s4);background:var(--primary);color:var(--white);padding:var(--s2) var(--s4);border-radius:0 0 var(--r-sm) var(--r-sm);z-index:10000;font-size:var(--f-sm);text-decoration:none;}
+.skip:focus{top:0;}
+.container{max-width:1200px;margin:0 auto;padding:0 var(--s6);}
+@media(max-width:768px){.container{padding:0 var(--s4);}}
+.ico{width:20px;height:20px;flex-shrink:0;}
+.ico-lg{width:24px;height:24px;}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+.glass{background:rgba(255,255,255,.72);backdrop-filter:blur(20px) saturate(1.3);-webkit-backdrop-filter:blur(20px) saturate(1.3);border:1px solid rgba(255,255,255,.6);box-shadow:var(--sh-sm);}
+[data-contrast="dark"] .glass{background:rgba(26,23,48,.72);border-color:rgba(255,255,255,.06);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.5;}}
+@keyframes dotBounce{0%,80%,100%{transform:scale(0);}40%{transform:scale(1);}}
+.anim{opacity:0;transform:translateY(24px);transition:opacity var(--dur-lg) var(--ease),transform var(--dur-lg) var(--ease);}
+.anim.in{opacity:1;transform:translateY(0);}
+.page{display:none;}.page.active{display:block;}
+/* NAV */
+.nav{position:fixed;top:0;right:0;left:0;z-index:1000;padding:var(--s3) 0;transition:background var(--dur-md) var(--ease),box-shadow var(--dur-md) var(--ease);}
+.nav.scrolled{background:rgba(255,255,255,.8);backdrop-filter:blur(20px) saturate(1.3);-webkit-backdrop-filter:blur(20px) saturate(1.3);box-shadow:var(--sh-sm);}
+[data-contrast="dark"] .nav.scrolled{background:rgba(15,13,26,.85);}
+.nav-inner{display:flex;align-items:center;gap:var(--s6);max-width:1200px;margin:0 auto;padding:0 var(--s6);}
+.nav-logo img{height:40px;filter:brightness(0) invert(1);transition:filter var(--dur-md) var(--ease);}
+.nav.scrolled .nav-logo img{filter:none;}
+[data-contrast="dark"] .nav-logo img{filter:brightness(0) invert(1);}
+.nav-links{display:flex;gap:var(--s1);margin-right:auto;}
+.nav-link{background:none;border:none;font-family:inherit;font-size:var(--f-sm);font-weight:500;color:rgba(255,255,255,.8);padding:var(--s2) var(--s3);border-radius:var(--r-sm);cursor:pointer;position:relative;transition:color var(--dur) var(--ease),background var(--dur) var(--ease);}
+.nav.scrolled .nav-link{color:var(--text);}
+.nav-link:hover{color:#fff;background:rgba(255,255,255,.1);}
+.nav.scrolled .nav-link:hover{color:var(--primary);background:rgba(40,38,146,.06);}
+.nav-link.on{color:#fff;}
+.nav.scrolled .nav-link.on{color:var(--primary);}
+.nav-link.on::after{content:'';position:absolute;bottom:0;right:var(--s3);left:var(--s3);height:2px;background:var(--sky);border-radius:1px;}
+.nav-cta{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;font-family:inherit;font-size:var(--f-sm);font-weight:600;padding:var(--s2) var(--s5);border-radius:var(--r-full);cursor:pointer;transition:all var(--dur) var(--ease);}
+.nav-cta:hover{background:rgba(255,255,255,.25);}
+.nav.scrolled .nav-cta{background:var(--g-brand);border-color:transparent;color:#fff;}
+.nav-a11y-btn{background:none;border:1px solid rgba(255,255,255,.3);color:#fff;width:36px;height:36px;border-radius:var(--r-full);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all var(--dur) var(--ease);}
+.nav.scrolled .nav-a11y-btn{border-color:var(--border);color:var(--text);}
+.burger{display:none;background:none;border:none;width:36px;height:36px;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:6px;}
+.burger span{display:block;width:22px;height:2px;background:#fff;border-radius:1px;transition:all var(--dur-md) var(--ease);}
+.nav.scrolled .burger span{background:var(--ink);}
+.burger.active span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.burger.active span:nth-child(2){opacity:0;}
+.burger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+@media(max-width:768px){.nav-links,.nav-cta,.nav-a11y-btn{display:none;}.burger{display:flex;}.nav-inner{padding:0 var(--s4);}}
+
+/* MOBILE MENU */
+.mob-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1001;opacity:0;pointer-events:none;transition:opacity var(--dur-md) var(--ease);}
+.mob-overlay.open{opacity:1;pointer-events:auto;}
+.mob-menu{position:fixed;top:0;right:0;width:300px;max-width:85vw;height:100%;z-index:1002;background:rgba(255,255,255,.95);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);transform:translateX(100%);transition:transform var(--dur-md) var(--ease);padding:var(--s6);display:flex;flex-direction:column;gap:var(--s4);box-shadow:var(--sh-lg);}
+[data-contrast="dark"] .mob-menu{background:rgba(15,13,26,.95);}
+.mob-menu.open{transform:translateX(0);}
+.mob-close{align-self:flex-start;background:none;border:none;width:40px;height:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--ink);font-size:1.5rem;border-radius:var(--r-sm);}
+.mob-menu .mob-link{display:block;padding:var(--s3) var(--s4);font-size:var(--f-body);font-weight:500;color:var(--ink);border:none;background:none;width:100%;text-align:right;font-family:inherit;cursor:pointer;border-radius:var(--r-sm);transition:background var(--dur) var(--ease);}
+.mob-menu .mob-link:hover,.mob-menu .mob-link.on{background:rgba(40,38,146,.06);color:var(--primary);}
+.mob-cta{display:block;width:100%;padding:var(--s3);background:var(--g-brand);color:#fff;border:none;font-family:inherit;font-size:var(--f-body);font-weight:600;border-radius:var(--r-md);cursor:pointer;margin-top:var(--s4);text-align:center;}
+/* SECTION COMMON */
+.sec{padding:var(--s24) 0;}
+.sec-label{font-size:var(--f-xs);font-weight:700;letter-spacing:.08em;color:var(--secondary);text-transform:uppercase;display:flex;align-items:center;gap:var(--s2);margin-bottom:var(--s3);}
+.sec-label::before{content:'';width:24px;height:2px;background:var(--g-brand);border-radius:1px;}
+.sec-title{font-size:var(--f-h1);font-weight:700;color:var(--ink);margin-bottom:var(--s3);line-height:1.3;}
+.sec-sub{font-size:var(--f-body);color:var(--muted);max-width:640px;margin-bottom:var(--s12);}
+.sec-header{text-align:center;margin-bottom:var(--s12);}
+.sec-header .sec-label{justify-content:center;}
+.sec-header .sec-sub{margin-inline:auto;}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:var(--s2);font-family:inherit;font-weight:600;border:none;border-radius:var(--r-full);cursor:pointer;transition:all var(--dur-md) var(--ease);text-decoration:none;line-height:1.4;}
+.btn-md{padding:var(--s3) var(--s6);font-size:var(--f-sm);}
+.btn-lg{padding:var(--s4) var(--s8);font-size:var(--f-body);}
+.btn-primary{background:var(--g-brand);color:#fff;box-shadow:0 4px 16px rgba(40,38,146,.2);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(40,38,146,.3);}
+.btn-outline{background:transparent;border:2px solid rgba(255,255,255,.4);color:#fff;}
+.btn-outline:hover{background:rgba(255,255,255,.1);}
+.btn-surface{background:var(--surface);color:var(--primary);border:1px solid var(--border);}
+.btn-surface:hover{box-shadow:var(--sh-md);transform:translateY(-1px);}
+.btn-white{background:#fff;color:var(--primary);box-shadow:var(--sh-sm);}
+.btn-white:hover{box-shadow:var(--sh-md);transform:translateY(-2px);}
+
+/* CARDS */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:var(--s6);transition:all var(--dur-md) var(--ease);}
+.card:hover{box-shadow:var(--sh-md);transform:translateY(-4px);}
+.card-icon{width:48px;height:48px;border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;margin-bottom:var(--s4);color:#fff;}
+.card-icon.purple{background:var(--g-brand);}
+.card-icon.blue{background:var(--g-accent);}
+.card-icon.green{background:linear-gradient(135deg,#34d399,#10b981);}
+.card-title{font-size:var(--f-h3);font-weight:700;color:var(--ink);margin-bottom:var(--s2);}
+.card-desc{font-size:var(--f-sm);color:var(--muted);line-height:1.7;}
+
+/* TOGGLE SWITCH */
+.toggle{position:relative;width:48px;height:26px;flex-shrink:0;}
+.toggle input{opacity:0;width:0;height:0;}
+.toggle-track{position:absolute;inset:0;background:var(--border);border-radius:var(--r-full);cursor:pointer;transition:background var(--dur-md) var(--ease);}
+.toggle-track::after{content:'';position:absolute;top:3px;right:3px;width:20px;height:20px;background:#fff;border-radius:50%;box-shadow:var(--sh-xs);transition:transform var(--dur-md) var(--ease-spring);}
+.toggle input:checked+.toggle-track{background:var(--g-brand);}
+.toggle input:checked+.toggle-track::after{transform:translateX(-22px);}
+
+/* TAG/CHIP */
+.tag{display:inline-flex;align-items:center;gap:var(--s1);padding:var(--s1) var(--s3);border-radius:var(--r-full);font-size:var(--f-xs);font-weight:600;line-height:1.5;}
+.tag-purple{background:rgba(129,79,195,.1);color:var(--secondary);}
+.tag-blue{background:rgba(62,158,237,.1);color:var(--blue);}
+.tag-green{background:rgba(16,185,129,.1);color:#10b981;}
+.tag-orange{background:rgba(245,158,11,.1);color:#d97706;}
+.tag-rose{background:rgba(244,63,94,.1);color:#e11d48;}
+.tag-teal{background:rgba(20,184,166,.1);color:#0d9488;}
+/* HERO */
+.hero{min-height:100vh;min-height:100svh;background:var(--g-hero);position:relative;display:flex;align-items:center;justify-content:center;text-align:center;padding:var(--s24) var(--s6) var(--s16);overflow:hidden;}
+.hero-deco{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+.hero-orb{position:absolute;border-radius:50%;filter:blur(60px);opacity:.18;animation:float 8s var(--ease) infinite;}
+.hero-orb-1{width:400px;height:400px;background:radial-gradient(circle,#52bdf9,transparent);top:-10%;left:10%;animation-delay:0s;}
+.hero-orb-2{width:300px;height:300px;background:radial-gradient(circle,#814fc3,transparent);bottom:5%;right:5%;animation-delay:2s;}
+.hero-orb-3{width:250px;height:250px;background:radial-gradient(circle,#3e9eed,transparent);top:40%;right:30%;animation-delay:4s;}
+.hero-content{position:relative;z-index:2;max-width:860px;}
+.hero-chip{display:inline-flex;align-items:center;gap:var(--s2);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);padding:var(--s2) var(--s4);border-radius:var(--r-full);font-size:var(--f-sm);color:rgba(255,255,255,.9);margin-bottom:var(--s6);}
+.hero-chip .dot{width:8px;height:8px;border-radius:50%;background:#34d399;animation:pulse 2s ease infinite;}
+.hero h1{font-size:var(--f-display);font-weight:700;color:#fff;line-height:1.25;margin-bottom:var(--s5);max-width:800px;margin-inline:auto;}
+.hero-sub{font-size:clamp(1rem,1.5vw,1.2rem);color:rgba(255,255,255,.75);max-width:640px;margin:0 auto var(--s8);line-height:1.8;}
+.hero-search{max-width:600px;margin:0 auto var(--s6);position:relative;}
+.hero-search-inner{display:flex;align-items:center;gap:var(--s2);background:rgba(255,255,255,.12);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.2);border-radius:var(--r-2xl);padding:var(--s2) var(--s3);transition:all var(--dur-md) var(--ease);}
+.hero-search-inner:focus-within{background:rgba(255,255,255,.2);border-color:rgba(255,255,255,.4);box-shadow:var(--sh-glow);}
+.hero-search input{flex:1;background:none;border:none;color:#fff;font-family:inherit;font-size:var(--f-body);padding:var(--s3) var(--s4);outline:none;}
+.hero-search input::placeholder{color:rgba(255,255,255,.5);}
+.hero-search-btn{width:44px;height:44px;border-radius:var(--r-xl);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all var(--dur) var(--ease);flex-shrink:0;}
+.hero-search-btn.mic{background:rgba(255,255,255,.15);color:#fff;}
+.hero-search-btn.mic:hover{background:rgba(255,255,255,.25);}
+.hero-search-btn.snd{background:var(--g-accent);color:#fff;}
+.hero-search-btn.snd:hover{transform:scale(1.05);}
+.hero-btns{display:flex;align-items:center;justify-content:center;gap:var(--s4);margin-bottom:var(--s10);flex-wrap:wrap;}
+.hero-trust{display:flex;align-items:center;justify-content:center;gap:var(--s6);flex-wrap:wrap;}
+.hero-trust-item{display:flex;flex-direction:column;align-items:center;color:rgba(255,255,255,.85);}
+.hero-trust-item strong{font-size:var(--f-h3);font-weight:700;color:#fff;}
+.hero-trust-item span{font-size:var(--f-xs);color:rgba(255,255,255,.6);}
+.hero-trust-div{width:1px;height:32px;background:rgba(255,255,255,.2);}
+
+/* FEATURES */
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s6);}
+@media(max-width:1024px){.feat-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.feat-grid{grid-template-columns:1fr;}}
+
+/* HOW IT WORKS */
+.how-sec{background:var(--surface-alt);}
+.how-steps{display:flex;gap:var(--s8);align-items:flex-start;position:relative;justify-content:center;}
+.how-step{text-align:center;flex:1;max-width:300px;position:relative;}
+.how-num{font-size:var(--f-display);font-weight:700;background:var(--g-brand);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:var(--s3);}
+.how-step h3{font-size:var(--f-h3);font-weight:700;color:var(--ink);margin-bottom:var(--s2);}
+.how-step p{font-size:var(--f-sm);color:var(--muted);}
+.how-line{position:absolute;top:40px;right:0;left:0;height:2px;border-top:2px dashed var(--border);z-index:0;pointer-events:none;}
+@media(max-width:768px){.how-steps{flex-direction:column;align-items:center;}.how-line{display:none;}}
+
+/* STATS */
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s6);}
+.stat-card{text-align:center;padding:var(--s8) var(--s4);}
+.stat-num{font-size:var(--f-h1);font-weight:700;color:var(--primary);margin-bottom:var(--s1);}
+.stat-label{font-size:var(--f-sm);color:var(--muted);}
+@media(max-width:768px){.stats-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:480px){.stats-grid{grid-template-columns:1fr;}}
+
+/* TESTIMONIALS */
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s6);}
+.test-card{padding:var(--s6);border-right:3px solid var(--secondary);}
+[data-contrast="dark"] .test-card{border-right-color:var(--sky);}
+.test-card blockquote{font-size:var(--f-body);color:var(--text);line-height:1.8;margin-bottom:var(--s5);font-style:normal;}
+.test-card blockquote::before{content:'\201C';font-size:2rem;color:var(--secondary);line-height:0;vertical-align:-8px;margin-left:4px;}
+.test-author{display:flex;align-items:center;gap:var(--s3);}
+.test-avatar{width:40px;height:40px;border-radius:50%;background:var(--g-brand);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:var(--f-sm);flex-shrink:0;}
+.test-name{font-weight:700;color:var(--ink);font-size:var(--f-sm);}
+.test-role{font-size:var(--f-xs);color:var(--muted);}
+@media(max-width:1024px){.test-grid{grid-template-columns:1fr;max-width:600px;margin-inline:auto;}}
+
+/* CTA SECTION */
+.cta-sec{background:var(--g-hero);padding:var(--s24) var(--s6);text-align:center;position:relative;overflow:hidden;}
+.cta-sec h2{font-size:var(--f-h1);font-weight:700;color:#fff;margin-bottom:var(--s4);max-width:600px;margin-inline:auto;}
+.cta-sec p{color:rgba(255,255,255,.75);margin-bottom:var(--s8);font-size:var(--f-body);}
+.cta-deco{position:absolute;border-radius:50%;opacity:.08;pointer-events:none;}
+.cta-deco-1{width:200px;height:200px;background:#52bdf9;top:-50px;left:10%;animation:float 6s ease infinite;}
+.cta-deco-2{width:150px;height:150px;background:#814fc3;bottom:-30px;right:15%;animation:float 8s ease infinite 1s;}
+
+/* CHAT PAGE */
+.chat-wrap{display:flex;height:calc(100vh - 72px);margin-top:72px;}
+.chat-sidebar{width:280px;border-left:1px solid var(--border);background:var(--surface);padding:var(--s5);overflow-y:auto;flex-shrink:0;display:flex;flex-direction:column;gap:var(--s4);}
+.chat-sidebar h3{font-size:var(--f-sm);font-weight:700;color:var(--ink);margin-bottom:var(--s2);}
+.chat-sug-btn{display:block;width:100%;text-align:right;background:var(--surface-alt);border:1px solid var(--border);font-family:inherit;font-size:var(--f-xs);color:var(--text);padding:var(--s3);border-radius:var(--r-md);cursor:pointer;transition:all var(--dur) var(--ease);margin-bottom:var(--s2);}
+.chat-sug-btn:hover{background:rgba(40,38,146,.05);border-color:var(--secondary);}
+.chat-main{flex:1;display:flex;flex-direction:column;background:var(--bg);}
+.chat-topbar{display:flex;align-items:center;gap:var(--s4);padding:var(--s3) var(--s5);border-bottom:1px solid var(--border);background:var(--surface);flex-wrap:wrap;}
+.chat-topbar h2{font-size:var(--f-body);font-weight:700;color:var(--ink);margin-left:auto;}
+.chat-mode-btns{display:flex;background:var(--surface-alt);border-radius:var(--r-full);overflow:hidden;border:1px solid var(--border);}
+.chat-mode-btn{padding:var(--s1) var(--s4);font-family:inherit;font-size:var(--f-xs);font-weight:500;border:none;background:none;cursor:pointer;color:var(--muted);transition:all var(--dur) var(--ease);}
+.chat-mode-btn.on{background:var(--g-brand);color:#fff;}
+.chat-body{flex:1;overflow-y:auto;padding:var(--s6);display:flex;flex-direction:column;gap:var(--s4);}
+.msg{display:flex;gap:var(--s3);max-width:80%;animation:fadeUp .3s var(--ease);}
+.msg-ai{align-self:flex-start;}
+.msg-user{align-self:flex-end;flex-direction:row-reverse;}
+.msg-avatar{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:var(--f-xs);font-weight:700;}
+.msg-ai .msg-avatar{background:var(--g-brand);color:#fff;}
+.msg-user .msg-avatar{background:var(--g-accent);color:#fff;}
+.msg-bubble{padding:var(--s4);border-radius:var(--r-lg);font-size:var(--f-sm);line-height:1.8;}
+.msg-ai .msg-bubble{background:var(--surface);border:1px solid var(--border);color:var(--text);}
+.msg-user .msg-bubble{background:var(--g-brand);color:#fff;border:none;}
+.msg-actions{display:flex;gap:var(--s1);margin-top:var(--s2);}
+.msg-act-btn{background:none;border:none;color:var(--muted);cursor:pointer;padding:var(--s1);border-radius:var(--r-sm);transition:color var(--dur) var(--ease);}
+.msg-act-btn:hover{color:var(--primary);}
+.typing{display:flex;gap:4px;padding:var(--s4);align-self:flex-start;}
+.typing span{width:8px;height:8px;background:var(--muted);border-radius:50%;animation:dotBounce 1.4s ease infinite;}
+.typing span:nth-child(2){animation-delay:.2s;}
+.typing span:nth-child(3){animation-delay:.4s;}
+.chat-input-area{padding:var(--s4) var(--s5);border-top:1px solid var(--border);background:var(--surface);}
+.chat-chips{display:flex;gap:var(--s2);margin-bottom:var(--s3);flex-wrap:wrap;}
+.chat-chip{padding:var(--s1) var(--s3);border-radius:var(--r-full);font-family:inherit;font-size:var(--f-xs);background:var(--surface-alt);border:1px solid var(--border);color:var(--text);cursor:pointer;transition:all var(--dur) var(--ease);}
+.chat-chip:hover{border-color:var(--secondary);color:var(--secondary);}
+.chat-input-row{display:flex;align-items:flex-end;gap:var(--s2);background:var(--surface-alt);border:1px solid var(--border);border-radius:var(--r-xl);padding:var(--s2);transition:border-color var(--dur) var(--ease);}
+.chat-input-row:focus-within{border-color:var(--secondary);box-shadow:0 0 0 3px rgba(129,79,195,.1);}
+.chat-input-row textarea{flex:1;border:none;background:none;font-family:inherit;font-size:var(--f-sm);color:var(--ink);resize:none;outline:none;padding:var(--s2) var(--s3);min-height:40px;max-height:120px;line-height:1.6;}
+.chat-input-btn{width:40px;height:40px;border-radius:var(--r-lg);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:all var(--dur) var(--ease);}
+.chat-mic-btn{background:transparent;color:var(--muted);}
+.chat-mic-btn:hover{color:var(--primary);}
+.chat-mic-btn.recording{color:#ef4444;animation:pulse 1s ease infinite;}
+.chat-send-btn{background:var(--g-brand);color:#fff;}
+.chat-send-btn:hover{transform:scale(1.05);}
+@media(max-width:768px){.chat-sidebar{display:none;}.msg{max-width:90%;}}
+
+/* SETTINGS PAGE */
+.settings-wrap{padding-top:100px;padding-bottom:var(--s24);}
+.settings-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:var(--s6);}
+.settings-group{padding:var(--s6);}
+.settings-group h3{font-size:var(--f-h3);font-weight:700;color:var(--ink);margin-bottom:var(--s5);display:flex;align-items:center;gap:var(--s3);}
+.setting-row{display:flex;align-items:center;justify-content:space-between;padding:var(--s4) 0;border-bottom:1px solid var(--border);}
+.setting-row:last-child{border-bottom:none;}
+.setting-label{font-size:var(--f-sm);font-weight:500;color:var(--text);}
+.setting-btns{display:flex;gap:var(--s1);background:var(--surface-alt);border-radius:var(--r-full);overflow:hidden;border:1px solid var(--border);}
+.setting-btn{padding:var(--s2) var(--s4);font-family:inherit;font-size:var(--f-xs);border:none;background:none;cursor:pointer;color:var(--muted);font-weight:500;transition:all var(--dur) var(--ease);}
+.setting-btn.on{background:var(--g-brand);color:#fff;}
+.fs-control{display:flex;align-items:center;gap:var(--s3);}
+.fs-btn{width:32px;height:32px;border-radius:50%;border:1px solid var(--border);background:var(--surface);display:flex;align-items:center;justify-content:center;cursor:pointer;font-family:inherit;font-size:var(--f-sm);font-weight:700;color:var(--text);transition:all var(--dur) var(--ease);}
+.fs-btn:hover{border-color:var(--primary);color:var(--primary);}
+.fs-val{font-size:var(--f-sm);font-weight:600;color:var(--primary);min-width:40px;text-align:center;}
+.range-slider{flex:1;max-width:180px;-webkit-appearance:none;appearance:none;height:6px;background:var(--border);border-radius:3px;outline:none;}
+.range-slider::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;background:var(--g-brand);border-radius:50%;cursor:pointer;box-shadow:var(--sh-xs);}
+
+/* DASHBOARD */
+.dash-wrap{padding-top:100px;padding-bottom:var(--s24);}
+.dash-welcome{margin-bottom:var(--s8);}
+.dash-welcome h1{font-size:var(--f-h1);font-weight:700;color:var(--ink);}
+.dash-welcome p{color:var(--muted);font-size:var(--f-sm);}
+.dash-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4);margin-bottom:var(--s8);}
+.dash-stat{padding:var(--s5);display:flex;align-items:center;gap:var(--s4);}
+.dash-stat-icon{width:48px;height:48px;border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.dash-stat-num{font-size:var(--f-h2);font-weight:700;color:var(--ink);}
+.dash-stat-label{font-size:var(--f-xs);color:var(--muted);}
+.dash-shortcuts{display:flex;gap:var(--s3);margin-bottom:var(--s8);flex-wrap:wrap;}
+.dash-shortcut{display:flex;align-items:center;gap:var(--s2);padding:var(--s3) var(--s5);border-radius:var(--r-md);font-family:inherit;font-size:var(--f-sm);font-weight:500;cursor:pointer;transition:all var(--dur) var(--ease);}
+.dash-shortcut:hover{box-shadow:var(--sh-md);transform:translateY(-2px);}
+.dash-section-title{font-size:var(--f-h3);font-weight:700;color:var(--ink);margin-bottom:var(--s4);}
+.saved-list{display:flex;flex-direction:column;gap:var(--s3);margin-bottom:var(--s8);}
+.saved-item{display:flex;align-items:center;gap:var(--s4);padding:var(--s4);border-radius:var(--r-md);cursor:pointer;transition:all var(--dur) var(--ease);background:var(--surface);border:1px solid var(--border);}
+.saved-item:hover{box-shadow:var(--sh-sm);border-color:var(--secondary);}
+.saved-icon{width:40px;height:40px;border-radius:var(--r-sm);background:var(--surface-alt);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--secondary);}
+.saved-info{flex:1;min-width:0;}
+.saved-info h4{font-size:var(--f-sm);font-weight:600;color:var(--ink);margin-bottom:2px;}
+.saved-info p{font-size:var(--f-xs);color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.saved-date{font-size:var(--f-xs);color:var(--muted);white-space:nowrap;}
+@media(max-width:768px){.dash-stats{grid-template-columns:1fr;}}
+
+/* RESOURCES */
+.res-wrap{padding-top:100px;padding-bottom:var(--s24);}
+.res-search{max-width:500px;margin-bottom:var(--s6);position:relative;}
+.res-search input{width:100%;padding:var(--s3) var(--s5) var(--s3) var(--s12);border:1px solid var(--border);border-radius:var(--r-full);font-family:inherit;font-size:var(--f-sm);background:var(--surface);color:var(--ink);outline:none;transition:border-color var(--dur) var(--ease);}
+.res-search input:focus{border-color:var(--secondary);}
+.res-search .ico{position:absolute;right:var(--s4);top:50%;transform:translateY(-50%);color:var(--muted);}
+.res-filters{display:flex;gap:var(--s2);margin-bottom:var(--s8);flex-wrap:wrap;}
+.res-chip{padding:var(--s2) var(--s4);border-radius:var(--r-full);font-family:inherit;font-size:var(--f-xs);font-weight:500;border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer;transition:all var(--dur) var(--ease);}
+.res-chip:hover{border-color:var(--secondary);}
+.res-chip.on{background:var(--g-brand);color:#fff;border-color:transparent;}
+.res-featured{padding:var(--s8);margin-bottom:var(--s8);display:flex;flex-direction:column;gap:var(--s3);background:var(--g-card);border-radius:var(--r-xl);border:1px solid var(--border);}
+.res-featured .tag{align-self:flex-start;}
+.res-featured h3{font-size:var(--f-h2);font-weight:700;color:var(--ink);}
+.res-featured p{font-size:var(--f-sm);color:var(--muted);max-width:700px;}
+.res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s6);}
+.res-card{display:flex;flex-direction:column;gap:var(--s3);}
+.res-card .tag{align-self:flex-start;}
+.res-card h4{font-size:var(--f-h3);font-weight:600;color:var(--ink);}
+.res-card p{font-size:var(--f-sm);color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.res-card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:var(--s3);border-top:1px solid var(--border);}
+.res-card-footer span{font-size:var(--f-xs);color:var(--muted);}
+.res-card-footer a{font-size:var(--f-xs);color:var(--secondary);text-decoration:none;font-weight:600;}
+.res-card-footer a:hover{text-decoration:underline;}
+@media(max-width:1024px){.res-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.res-grid{grid-template-columns:1fr;}}
+
+/* ABOUT */
+.about-hero{background:var(--g-hero);padding:calc(var(--s24) + 72px) var(--s6) var(--s24);text-align:center;position:relative;overflow:hidden;}
+.about-hero h1{font-size:var(--f-h1);font-weight:700;color:#fff;margin-bottom:var(--s3);}
+.about-hero p{color:rgba(255,255,255,.75);max-width:640px;margin:0 auto;font-size:var(--f-body);line-height:1.8;}
+.about-deco{position:absolute;border:2px solid rgba(255,255,255,.06);border-radius:50%;pointer-events:none;}
+.about-deco-1{width:300px;height:300px;top:-50px;left:-50px;}
+.about-deco-2{width:200px;height:200px;bottom:-40px;right:10%;}
+.about-mission{display:grid;grid-template-columns:1fr 1fr;gap:var(--s12);align-items:center;}
+.about-mission-text h2{font-size:var(--f-h2);font-weight:700;color:var(--ink);margin-bottom:var(--s4);}
+.about-mission-text p{color:var(--muted);line-height:1.8;margin-bottom:var(--s4);}
+.about-mission-visual{display:flex;align-items:center;justify-content:center;}
+.about-mission-circle{width:200px;height:200px;border-radius:50%;background:var(--g-brand);display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-glow);}
+.about-mission-circle .ico{width:80px;height:80px;color:#fff;}
+.values-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s6);}
+.value-card{display:flex;gap:var(--s4);align-items:flex-start;}
+.value-icon{width:48px;height:48px;border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;}
+.value-card h3{font-size:var(--f-h3);font-weight:700;color:var(--ink);margin-bottom:var(--s1);}
+.value-card p{font-size:var(--f-sm);color:var(--muted);}
+@media(max-width:768px){.about-mission{grid-template-columns:1fr;}.values-grid{grid-template-columns:1fr;}}
+
+/* CONTACT */
+.contact-wrap{padding-top:100px;padding-bottom:var(--s24);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--s12);}
+.form-group{margin-bottom:var(--s5);}
+.form-group label{display:block;font-size:var(--f-sm);font-weight:600;color:var(--ink);margin-bottom:var(--s2);}
+.form-input{width:100%;padding:var(--s3) var(--s4);border:1px solid var(--border);border-radius:var(--r-md);font-family:inherit;font-size:var(--f-sm);color:var(--ink);background:var(--surface);outline:none;transition:border-color var(--dur) var(--ease);}
+.form-input:focus{border-color:var(--secondary);box-shadow:0 0 0 3px rgba(129,79,195,.1);}
+textarea.form-input{min-height:140px;resize:vertical;line-height:1.7;}
+select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'%3E%3Cpolyline points='6 9 12 15 18 9' fill='none' stroke='%238a7fa3' stroke-width='2'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:left 12px center;}
+.contact-info{display:flex;flex-direction:column;gap:var(--s4);}
+.contact-card{display:flex;align-items:center;gap:var(--s4);padding:var(--s4);}
+.contact-card-icon{width:44px;height:44px;border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;}
+.contact-card h4{font-size:var(--f-sm);font-weight:600;color:var(--ink);}
+.contact-card p{font-size:var(--f-sm);color:var(--muted);}
+.rating-sec{padding:var(--s6);margin-top:var(--s6);}
+.rating-sec h3{font-size:var(--f-h3);font-weight:700;color:var(--ink);margin-bottom:var(--s4);}
+.stars{display:flex;gap:var(--s2);margin-bottom:var(--s4);}
+.star-btn{background:none;border:none;cursor:pointer;color:var(--border);transition:color var(--dur) var(--ease);}
+.star-btn.active,.star-btn:hover{color:#f59e0b;}
+.star-btn .ico{width:28px;height:28px;}
+@media(max-width:768px){.contact-grid{grid-template-columns:1fr;}}
+
+/* FOOTER */
+.footer{background:var(--navy);color:rgba(255,255,255,.7);padding:var(--s16) var(--s6) 0;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:var(--s8);margin-bottom:var(--s12);}
+.footer-brand p{font-size:var(--f-sm);line-height:1.8;margin:var(--s4) 0;max-width:280px;}
+.footer-social{display:flex;gap:var(--s2);}
+.footer-social-btn{width:36px;height:36px;border-radius:50%;border:1px solid rgba(255,255,255,.15);background:none;color:rgba(255,255,255,.6);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all var(--dur) var(--ease);}
+.footer-social-btn:hover{background:rgba(255,255,255,.1);color:#fff;}
+.footer h4{color:#fff;font-size:var(--f-sm);font-weight:700;margin-bottom:var(--s4);}
+.footer-link{display:block;font-size:var(--f-sm);color:rgba(255,255,255,.6);text-decoration:none;padding:var(--s1) 0;cursor:pointer;background:none;border:none;font-family:inherit;transition:color var(--dur) var(--ease);}
+.footer-link:hover{color:#fff;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding:var(--s5) 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--s2);}
+.footer-bottom span{font-size:var(--f-xs);}
+@media(max-width:1024px){.footer-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:600px){.footer-grid{grid-template-columns:1fr;}}
+
+/* A11Y FAB */
+.fab{position:fixed;bottom:var(--s6);left:var(--s6);z-index:1000;}
+.fab-btn{width:52px;height:52px;border-radius:50%;background:var(--g-brand);color:#fff;border:none;box-shadow:var(--sh-lg);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all var(--dur-md) var(--ease);}
+.fab-btn:hover{transform:scale(1.08);box-shadow:var(--sh-glow),var(--sh-lg);}
+.fab-btn .ico{width:24px;height:24px;}
+.fab-popup{position:absolute;bottom:calc(100% + var(--s3));left:0;width:280px;padding:var(--s5);border-radius:var(--r-xl);opacity:0;transform:translateY(8px) scale(.95);pointer-events:none;transition:all var(--dur-md) var(--ease-spring);}
+.fab-popup.open{opacity:1;transform:translateY(0) scale(1);pointer-events:auto;}
+.fab-popup h3{font-size:var(--f-sm);font-weight:700;color:var(--ink);margin-bottom:var(--s4);}
+.fab-row{display:flex;align-items:center;justify-content:space-between;padding:var(--s2) 0;}
+.fab-row span{font-size:var(--f-sm);color:var(--text);}
+.fab-fs{display:flex;align-items:center;gap:var(--s2);}
+.fab-fs-btn{width:32px;height:32px;border-radius:50%;border:1px solid var(--border);background:var(--surface);font-family:inherit;font-size:var(--f-sm);font-weight:700;color:var(--text);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all var(--dur) var(--ease);}
+.fab-fs-btn:hover{border-color:var(--primary);color:var(--primary);}
+.fab-link{display:block;width:100%;margin-top:var(--s3);padding:var(--s3);border-radius:var(--r-md);background:var(--surface-alt);border:none;font-family:inherit;font-size:var(--f-xs);font-weight:600;color:var(--primary);text-align:center;cursor:pointer;transition:background var(--dur) var(--ease);}
+.fab-link:hover{background:rgba(40,38,146,.08);}
+@media(max-width:480px){
+.hero h1{font-size:clamp(1.75rem,6vw,2.5rem);}
+.hero-btns{flex-direction:column;width:100%;}
+.hero-btns .btn{width:100%;justify-content:center;}
+.hero-trust{gap:var(--s4);}
+.hero-trust-div{display:none;}
+}
+</style>
+</head>
+<body>
+<a href="#main" class="skip">تخطي إلى المحتوى الرئيسي</a>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+<symbol id="ic-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+<symbol id="ic-mic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></symbol>
+<symbol id="ic-a11y" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4" r="2"/><path d="M12 8v6"/><path d="M8 10l4 2 4-2"/><path d="M10 18l2-4 2 4"/><path d="M8 22l2-4"/><path d="M16 22l-2-4"/></symbol>
+<symbol id="ic-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+<symbol id="ic-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></symbol>
+<symbol id="ic-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol>
+<symbol id="ic-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></symbol>
+<symbol id="ic-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></symbol>
+<symbol id="ic-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
+<symbol id="ic-bookmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></symbol>
+<symbol id="ic-volume" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></symbol>
+<symbol id="ic-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></symbol>
+<symbol id="ic-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+<symbol id="ic-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+<symbol id="ic-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol>
+<symbol id="ic-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+<symbol id="ic-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></symbol>
+<symbol id="ic-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+<symbol id="ic-lightbulb" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></symbol>
+<symbol id="ic-settings" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></symbol>
+<symbol id="ic-arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></symbol>
+<symbol id="ic-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></symbol>
+<symbol id="ic-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></symbol>
+<symbol id="ic-brain" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 0 1 4.56 2.95A4.5 4.5 0 0 1 20 9.5a4.5 4.5 0 0 1-2.59 4.07A5 5 0 0 1 12 18"/><path d="M12 2a5 5 0 0 0-4.56 2.95A4.5 4.5 0 0 0 4 9.5a4.5 4.5 0 0 0 2.59 4.07A5 5 0 0 0 12 18"/><path d="M12 18v4"/><path d="M8 10h.01"/><path d="M16 10h.01"/></symbol>
+<symbol id="ic-hand-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 14h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17"/><path d="M7 21l1.6-1.4c.3-.4.8-.6 1.4-.6h4c.8 0 1.6-.3 2.1-.9l4.8-4.3a2 2 0 0 0-2.7-2.9L15 14"/><path d="M12 4l-1.5 1.5a2.12 2.12 0 0 0 0 3c.8.8 2.2.8 3 0L12 4z"/></symbol>
+<symbol id="ic-graduation" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10l-10-5L2 10l10 5 10-5z"/><path d="M6 12v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/><line x1="22" y1="10" x2="22" y2="16"/></symbol>
+<symbol id="ic-briefcase" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+<symbol id="ic-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></symbol>
+<symbol id="ic-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></symbol>
+</svg>
+<nav class="nav" id="nav" role="navigation" aria-label="التنقل الرئيسي">
+<div class="nav-inner">
+<a href="#" class="nav-logo" onclick="go('home');return false" aria-label="وصال - الصفحة الرئيسية"><img src="logo.png" alt="شعار وصال" width="120" height="40"></a>
+<div class="nav-links">
+<button class="nav-link on" onclick="go('home')" data-pg="home">الرئيسية</button>
+<button class="nav-link" onclick="go('chat')" data-pg="chat">المحادثة الذكية</button>
+<button class="nav-link" onclick="go('resources')" data-pg="resources">الموارد</button>
+<button class="nav-link" onclick="go('dashboard')" data-pg="dashboard">لوحة التحكم</button>
+<button class="nav-link" onclick="go('about')" data-pg="about">عن وصال</button>
+<button class="nav-link" onclick="go('contact')" data-pg="contact">تواصل معنا</button>
+</div>
+<button class="nav-cta" onclick="go('chat')" aria-label="ابدأ محادثة">ابدأ محادثة</button>
+<button class="nav-a11y-btn" onclick="toggleA11y()" aria-label="إعدادات إمكانية الوصول"><svg class="ico"><use href="#ic-a11y"/></svg></button>
+<button class="burger" id="burger" onclick="toggleMob()" aria-label="القائمة" aria-expanded="false"><span></span><span></span><span></span></button>
+</div>
+</nav>
+
+<div class="mob-overlay" id="mobOverlay" onclick="toggleMob()"></div>
+<div class="mob-menu" id="mobMenu" role="dialog" aria-label="القائمة">
+<button class="mob-close" onclick="toggleMob()" aria-label="إغلاق القائمة">&times;</button>
+<button class="mob-link on" onclick="go('home');toggleMob()" data-pg="home">الرئيسية</button>
+<button class="mob-link" onclick="go('chat');toggleMob()" data-pg="chat">المحادثة الذكية</button>
+<button class="mob-link" onclick="go('resources');toggleMob()" data-pg="resources">الموارد</button>
+<button class="mob-link" onclick="go('dashboard');toggleMob()" data-pg="dashboard">لوحة التحكم</button>
+<button class="mob-link" onclick="go('about');toggleMob()" data-pg="about">عن وصال</button>
+<button class="mob-link" onclick="go('contact');toggleMob()" data-pg="contact">تواصل معنا</button>
+<button class="mob-cta" onclick="go('settings');toggleMob()"><svg class="ico" style="width:16px;height:16px;vertical-align:middle;margin-left:4px"><use href="#ic-a11y"/></svg> إعدادات الوصول</button>
+</div>
+<main id="main">
+<div class="page active" id="pg-home">
+
+<!-- HERO -->
+<section class="hero" aria-label="القسم الرئيسي">
+<div class="hero-deco" aria-hidden="true">
+<svg style="position:absolute;top:10%;right:5%;width:400px;opacity:.12" viewBox="0 0 400 400"><path d="M50 200 Q150 50 250 200 T400 200" fill="none" stroke="#52bdf9" stroke-width="1.5"/><path d="M0 250 Q100 100 200 250 T400 250" fill="none" stroke="#52bdf9" stroke-width="1"/></svg>
+<svg style="position:absolute;bottom:15%;left:5%;width:300px;opacity:.08" viewBox="0 0 300 300"><circle cx="150" cy="150" r="120" fill="none" stroke="#814fc3" stroke-width="1.5"/><circle cx="150" cy="150" r="80" fill="none" stroke="#814fc3" stroke-width="1"/></svg>
+<div class="hero-orb hero-orb-1"></div>
+<div class="hero-orb hero-orb-2"></div>
+<div class="hero-orb hero-orb-3"></div>
+</div>
+<div class="hero-content">
+<div class="hero-chip anim" style="transition-delay:.1s"><span class="dot"></span> منصة ذكاء اصطناعي مُيسّرة للجميع</div>
+<h1 class="anim" style="transition-delay:.2s">وصال — رفيقك الذكي للوصول إلى المعرفة</h1>
+<p class="hero-sub anim" style="transition-delay:.3s">منصة ذكاء اصطناعي مصممة خصيصاً لمساعدة الأشخاص ذوي الإعاقة في الحصول على إجابات واضحة ومعلومات موثوقة بأسلوب سهل ومُيسّر</p>
+<div class="hero-search anim" style="transition-delay:.4s">
+<div class="hero-search-inner">
+<input type="text" id="heroInput" placeholder="اسأل وصال عن أي شيء..." aria-label="اسأل وصال" onkeydown="if(event.key==='Enter')heroAsk()">
+<button class="hero-search-btn mic" onclick="toggleVoice()" aria-label="البحث الصوتي"><svg class="ico"><use href="#ic-mic"/></svg></button>
+<button class="hero-search-btn snd" onclick="heroAsk()" aria-label="إرسال السؤال"><svg class="ico"><use href="#ic-send"/></svg></button>
+</div>
+</div>
+<div class="hero-btns anim" style="transition-delay:.5s">
+<button class="btn btn-lg btn-primary" onclick="go('chat')"><svg class="ico"><use href="#ic-chat"/></svg> ابدأ محادثة مع وصال</button>
+<button class="btn btn-lg btn-outline" onclick="go('about')"><svg class="ico"><use href="#ic-info"/></svg> تعرّف على المنصة</button>
+</div>
+<div class="hero-trust anim" style="transition-delay:.6s">
+<div class="hero-trust-item"><strong>+١٠,٠٠٠</strong><span>مستخدم</span></div>
+<div class="hero-trust-div" aria-hidden="true"></div>
+<div class="hero-trust-item"><strong>٩٨٪</strong><span>رضا</span></div>
+<div class="hero-trust-div" aria-hidden="true"></div>
+<div class="hero-trust-item"><strong>٢٤/٧</strong><span>متاح</span></div>
+</div>
+</div>
+</section>
+
+<!-- FEATURES -->
+<section class="sec" aria-label="المزايا">
+<div class="container">
+<div class="sec-header">
+<div class="sec-label anim">المزايا</div>
+<h2 class="sec-title anim">تجربة ذكية مصممة لتكون في متناول الجميع</h2>
+<p class="sec-sub anim">نجمع بين قوة الذكاء الاصطناعي وأفضل معايير إمكانية الوصول لنقدم تجربة فريدة ومُيسّرة</p>
+</div>
+<div class="feat-grid">
+<div class="card anim" style="transition-delay:.1s"><div class="card-icon purple"><svg class="ico"><use href="#ic-brain"/></svg></div><h3 class="card-title">إجابات ذكية ومبسّطة</h3><p class="card-desc">يفهم وصال أسئلتك ويقدّم إجابات واضحة ومبسّطة تناسب احتياجاتك المعلوماتية</p></div>
+<div class="card anim" style="transition-delay:.2s"><div class="card-icon blue"><svg class="ico"><use href="#ic-mic"/></svg></div><h3 class="card-title">تفاعل صوتي طبيعي</h3><p class="card-desc">تحدّث مع وصال بصوتك واستمع للإجابات — مصمم لسهولة الاستخدام لجميع القدرات</p></div>
+<div class="card anim" style="transition-delay:.3s"><div class="card-icon green"><svg class="ico"><use href="#ic-eye"/></svg></div><h3 class="card-title">واجهة مُيسّرة بالكامل</h3><p class="card-desc">تحكم بحجم الخط والتباين والألوان والحركة لتجربة تناسبك تماماً</p></div>
+<div class="card anim" style="transition-delay:.4s"><div class="card-icon purple"><svg class="ico"><use href="#ic-shield"/></svg></div><h3 class="card-title">معلومات موثوقة وآمنة</h3><p class="card-desc">نعتمد على مصادر موثوقة ومُحدّثة لضمان دقة المعلومات المقدّمة</p></div>
+<div class="card anim" style="transition-delay:.5s"><div class="card-icon blue"><svg class="ico"><use href="#ic-book"/></svg></div><h3 class="card-title">مكتبة معرفية شاملة</h3><p class="card-desc">آلاف الموارد والأدلة الإرشادية المصنّفة والمُيسّرة لسهولة الوصول</p></div>
+<div class="card anim" style="transition-delay:.6s"><div class="card-icon green"><svg class="ico"><use href="#ic-hand-heart"/></svg></div><h3 class="card-title">دعم إنساني ومستمر</h3><p class="card-desc">منصة مصممة بحب واهتمام لتكون رفيقاً موثوقاً في رحلتك المعرفية</p></div>
+</div>
+</div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="sec how-sec" aria-label="كيف يعمل وصال">
+<div class="container">
+<div class="sec-header">
+<div class="sec-label anim">آلية العمل</div>
+<h2 class="sec-title anim">كيف يعمل وصال؟</h2>
+</div>
+<div class="how-steps">
+<div class="how-step anim" style="transition-delay:.1s"><div class="how-num">٠١</div><h3>اسأل سؤالك</h3><p>اكتب أو انطق سؤالك بالعربية — وصال يفهم لغتك الطبيعية</p></div>
+<div class="how-step anim" style="transition-delay:.3s"><div class="how-num">٠٢</div><h3>وصال يبحث لك</h3><p>يحلل وصال سؤالك ويبحث في قاعدة المعرفة عن أفضل إجابة</p></div>
+<div class="how-step anim" style="transition-delay:.5s"><div class="how-num">٠٣</div><h3>احصل على الإجابة</h3><p>تحصل على إجابة واضحة ومبسّطة مع إمكانية طلب مزيد من التفصيل</p></div>
+</div>
+</div>
+</section>
+
+<!-- STATS -->
+<section class="sec" aria-label="إحصائيات">
+<div class="container">
+<div class="stats-grid">
+<div class="card stat-card anim" style="transition-delay:.1s"><div class="stat-num">١٠,٠٠٠+</div><div class="stat-label">مستخدم نشط</div></div>
+<div class="card stat-card anim" style="transition-delay:.2s"><div class="stat-num">٥٠,٠٠٠+</div><div class="stat-label">سؤال تمت الإجابة عليه</div></div>
+<div class="card stat-card anim" style="transition-delay:.3s"><div class="stat-num">٩٨٪</div><div class="stat-label">معدل رضا المستخدمين</div></div>
+<div class="card stat-card anim" style="transition-delay:.4s"><div class="stat-num">٢٤/٧</div><div class="stat-label">متاح على مدار الساعة</div></div>
+</div>
+</div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="sec" style="background:var(--surface-alt)" aria-label="آراء المستخدمين">
+<div class="container">
+<div class="sec-header">
+<div class="sec-label anim">آراء المستخدمين</div>
+<h2 class="sec-title anim">ماذا يقول مستخدمونا</h2>
+</div>
+<div class="test-grid">
+<div class="card test-card anim" style="transition-delay:.1s">
+<blockquote>وصال ساعدني في فهم حقوقي كشخص من ذوي الإعاقة بطريقة بسيطة وواضحة. أصبحت أكثر ثقة في التعامل مع الجهات الحكومية</blockquote>
+<div class="test-author"><div class="test-avatar">م</div><div><div class="test-name">محمد الأحمد</div><div class="test-role">مستفيد من المنصة</div></div></div>
+</div>
+<div class="card test-card anim" style="transition-delay:.2s">
+<blockquote>أفضل ما في وصال أنه يفهم أسئلتي حتى لو لم أصغها بشكل مثالي. الردود دائماً واضحة ومفيدة</blockquote>
+<div class="test-author"><div class="test-avatar" style="background:var(--g-accent)">س</div><div><div class="test-name">سارة العتيبي</div><div class="test-role">معلمة تربية خاصة</div></div></div>
+</div>
+<div class="card test-card anim" style="transition-delay:.3s">
+<blockquote>كمكفوف، أقدّر كثيراً ميزة القراءة الصوتية والتنقل السهل. وصال مصمم فعلاً لنا</blockquote>
+<div class="test-author"><div class="test-avatar" style="background:linear-gradient(135deg,#34d399,#10b981)">خ</div><div><div class="test-name">خالد المنصور</div><div class="test-role">مستخدم</div></div></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec" aria-label="دعوة للعمل">
+<div class="cta-deco cta-deco-1" aria-hidden="true"></div>
+<div class="cta-deco cta-deco-2" aria-hidden="true"></div>
+<div class="container" style="position:relative;z-index:2;">
+<h2 class="anim">ابدأ رحلتك المعرفية مع وصال اليوم</h2>
+<p class="anim" style="transition-delay:.1s">اسأل أي سؤال واحصل على إجابات واضحة ومُيسّرة — مجاناً</p>
+<button class="btn btn-lg btn-white anim" style="transition-delay:.2s" onclick="go('chat')">ابدأ الآن</button>
+</div>
+</section>
+
+</div>
+
+<!-- CHAT PAGE -->
+<div class="page" id="pg-chat">
+<div class="chat-wrap">
+<aside class="chat-sidebar" aria-label="المواضيع المقترحة">
+<h3>المواضيع المقترحة</h3>
+<button class="chat-sug-btn" onclick="askSug(this)">ما هي حقوق ذوي الإعاقة في العمل؟</button>
+<button class="chat-sug-btn" onclick="askSug(this)">كيف أحصل على بطاقة الإعاقة؟</button>
+<button class="chat-sug-btn" onclick="askSug(this)">ما الخدمات التعليمية المتاحة؟</button>
+<button class="chat-sug-btn" onclick="askSug(this)">كيف أتقدم للدعم المالي؟</button>
+<button class="chat-sug-btn" onclick="askSug(this)">ما هي التقنيات المساعدة الحديثة؟</button>
+<button class="chat-sug-btn" onclick="askSug(this)">حقوقي في التأمين الصحي</button>
+<h3 style="margin-top:var(--s6)">المحادثات الأخيرة</h3>
+<button class="chat-sug-btn" onclick="askSug(this)">حقوق التوظيف لذوي الإعاقة</button>
+<button class="chat-sug-btn" onclick="askSug(this)">الدعم المالي المتاح</button>
+</aside>
+<div class="chat-main">
+<div class="chat-topbar">
+<h2>محادثة مع وصال</h2>
+<div class="chat-mode-btns">
+<button class="chat-mode-btn on" onclick="toggleMode(this)" data-mode="simple">مبسط</button>
+<button class="chat-mode-btn" onclick="toggleMode(this)" data-mode="detailed">مفصل</button>
+</div>
+<button class="chat-input-btn chat-mic-btn" onclick="speakMsg()" aria-label="القراءة الصوتية" style="width:32px;height:32px;"><svg class="ico" style="width:16px;height:16px"><use href="#ic-volume"/></svg></button>
+<button class="chat-input-btn" onclick="go('settings')" aria-label="الإعدادات" style="width:32px;height:32px;background:var(--surface-alt);color:var(--muted);"><svg class="ico" style="width:16px;height:16px"><use href="#ic-settings"/></svg></button>
+</div>
+<div class="chat-body" id="chatBody">
+<div class="msg msg-ai">
+<div class="msg-avatar">و</div>
+<div>
+<div class="msg-bubble">مرحباً بك في وصال! 👋 أنا هنا لمساعدتك في الإجابة على أسئلتك وتقديم معلومات موثوقة. يمكنك أن تسألني عن حقوق ذوي الإعاقة، الخدمات المتاحة، التقنيات المساعدة، أو أي موضوع آخر. كيف يمكنني مساعدتك اليوم؟</div>
+<div class="msg-actions">
+<button class="msg-act-btn" onclick="copyMsg(this)" aria-label="نسخ"><svg class="ico" style="width:14px;height:14px"><use href="#ic-copy"/></svg></button>
+<button class="msg-act-btn" onclick="speakMsg(this)" aria-label="قراءة صوتية"><svg class="ico" style="width:14px;height:14px"><use href="#ic-volume"/></svg></button>
+<button class="msg-act-btn" aria-label="حفظ"><svg class="ico" style="width:14px;height:14px"><use href="#ic-bookmark"/></svg></button>
+</div>
+</div>
+</div>
+</div>
+<div class="chat-input-area">
+<div class="chat-chips" id="chatChips">
+<button class="chat-chip" onclick="askSug(this)">ما حقوقي في العمل؟</button>
+<button class="chat-chip" onclick="askSug(this)">الخدمات الصحية المتاحة</button>
+<button class="chat-chip" onclick="askSug(this)">التقنيات المساعدة</button>
+<button class="chat-chip" onclick="askSug(this)">الدعم المالي</button>
+</div>
+<div class="chat-input-row">
+<textarea id="chatInput" rows="1" placeholder="اكتب سؤالك هنا..." aria-label="اكتب سؤالك" onkeydown="chatKey(event)" oninput="autoResize(this)"></textarea>
+<button class="chat-input-btn chat-mic-btn" id="voiceBtn" onclick="toggleVoice()" aria-label="تسجيل صوتي"><svg class="ico"><use href="#ic-mic"/></svg></button>
+<button class="chat-input-btn chat-send-btn" onclick="send()" aria-label="إرسال"><svg class="ico"><use href="#ic-send"/></svg></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- SETTINGS PAGE -->
+<div class="page" id="pg-settings">
+<div class="settings-wrap container">
+<div class="sec-header" style="text-align:right;margin-bottom:var(--s8);">
+<h1 class="sec-title anim">إعدادات إمكانية الوصول</h1>
+<p class="sec-sub anim" style="margin-bottom:0">خصّص تجربة وصال لتناسب احتياجاتك — جميع التغييرات تُطبق فوراً</p>
+</div>
+<div class="settings-grid">
+<div class="card settings-group glass anim">
+<h3><svg class="ico ico-lg" style="color:var(--secondary)"><use href="#ic-eye"/></svg> العرض والمظهر</h3>
+<div class="setting-row"><span class="setting-label">وضع العرض</span>
+<div class="setting-btns" id="contrastBtns"><button class="setting-btn on" onclick="setC('','contrastBtns',this)">عادي</button><button class="setting-btn" onclick="setC('high','contrastBtns',this)">تباين عالي</button><button class="setting-btn" onclick="setC('dark','contrastBtns',this)">داكن</button></div>
+</div>
+<div class="setting-row"><span class="setting-label">حجم الخط</span>
+<div class="fs-control"><button class="fs-btn" onclick="setFS(_fs-10)" aria-label="تصغير الخط">أ-</button><span class="fs-val" id="fsVal">١٠٠٪</span><button class="fs-btn" onclick="setFS(_fs+10)" aria-label="تكبير الخط">أ+</button></div>
+</div>
+<div class="setting-row"><span class="setting-label">تقليل الحركة</span>
+<label class="toggle"><input type="checkbox" onchange="document.documentElement.setAttribute('data-reduce-motion',this.checked)" aria-label="تقليل الحركة"><span class="toggle-track"></span></label>
+</div>
+</div>
+<div class="card settings-group glass anim" style="transition-delay:.1s">
+<h3><svg class="ico ico-lg" style="color:var(--blue)"><use href="#ic-volume"/></svg> القراءة والصوت</h3>
+<div class="setting-row"><span class="setting-label">القراءة الصوتية التلقائية</span>
+<label class="toggle"><input type="checkbox" aria-label="القراءة الصوتية التلقائية"><span class="toggle-track"></span></label>
+</div>
+<div class="setting-row"><span class="setting-label">سرعة القراءة</span>
+<input type="range" class="range-slider" min="0.5" max="2" step="0.1" value="1" aria-label="سرعة القراءة">
+</div>
+<div class="setting-row"><span class="setting-label">صوت القراءة</span>
+<div class="setting-btns"><button class="setting-btn on">ذكر</button><button class="setting-btn">أنثى</button></div>
+</div>
+</div>
+<div class="card settings-group glass anim" style="transition-delay:.2s">
+<h3><svg class="ico ico-lg" style="color:#10b981"><use href="#ic-settings"/></svg> التنقل والتفاعل</h3>
+<div class="setting-row"><span class="setting-label">تكبير مساحة اللمس</span>
+<label class="toggle"><input type="checkbox" aria-label="تكبير مساحة اللمس"><span class="toggle-track"></span></label>
+</div>
+<div class="setting-row"><span class="setting-label">تمييز الروابط</span>
+<label class="toggle"><input type="checkbox" aria-label="تمييز الروابط"><span class="toggle-track"></span></label>
+</div>
+<div class="setting-row"><span class="setting-label">تسهيل التنقل بلوحة المفاتيح</span>
+<label class="toggle"><input type="checkbox" aria-label="تسهيل التنقل بلوحة المفاتيح"><span class="toggle-track"></span></label>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- DASHBOARD PAGE -->
+<div class="page" id="pg-dashboard">
+<div class="dash-wrap container">
+<div class="dash-welcome anim">
+<h1><svg class="ico ico-lg" style="vertical-align:middle;margin-left:8px;color:var(--secondary)"><use href="#ic-clock"/></svg> مرحباً بعودتك</h1>
+<p>إليك ملخص نشاطك وأدوات الوصول السريع</p>
+</div>
+<div class="dash-stats">
+<div class="card dash-stat glass anim" style="transition-delay:.1s">
+<div class="dash-stat-icon" style="background:rgba(129,79,195,.1);color:var(--secondary)"><svg class="ico ico-lg"><use href="#ic-chat"/></svg></div>
+<div><div class="dash-stat-num">١٢</div><div class="dash-stat-label">محادثة</div></div>
+</div>
+<div class="card dash-stat glass anim" style="transition-delay:.2s">
+<div class="dash-stat-icon" style="background:rgba(62,158,237,.1);color:var(--blue)"><svg class="ico ico-lg"><use href="#ic-lightbulb"/></svg></div>
+<div><div class="dash-stat-num">٤٨</div><div class="dash-stat-label">سؤال</div></div>
+</div>
+<div class="card dash-stat glass anim" style="transition-delay:.3s">
+<div class="dash-stat-icon" style="background:rgba(16,185,129,.1);color:#10b981"><svg class="ico ico-lg"><use href="#ic-bookmark"/></svg></div>
+<div><div class="dash-stat-num">٨</div><div class="dash-stat-label">محفوظ</div></div>
+</div>
+</div>
+<div class="dash-shortcuts anim">
+<button class="card dash-shortcut" onclick="go('chat')"><svg class="ico" style="color:var(--secondary)"><use href="#ic-chat"/></svg> محادثة جديدة</button>
+<button class="card dash-shortcut" onclick="go('settings')"><svg class="ico" style="color:var(--blue)"><use href="#ic-a11y"/></svg> إعدادات الوصول</button>
+<button class="card dash-shortcut" onclick="go('resources')"><svg class="ico" style="color:#10b981"><use href="#ic-book"/></svg> الموارد</button>
+<button class="card dash-shortcut" onclick="go('contact')"><svg class="ico" style="color:#f59e0b"><use href="#ic-phone"/></svg> الدعم</button>
+</div>
+<h3 class="dash-section-title anim">المحادثات المحفوظة</h3>
+<div class="saved-list">
+<div class="saved-item anim" style="transition-delay:.1s" onclick="go('chat')">
+<div class="saved-icon"><svg class="ico"><use href="#ic-chat"/></svg></div>
+<div class="saved-info"><h4>الدعم المالي لذوي الإعاقة</h4><p>تعرف على برامج الدعم المالي المتاحة...</p></div>
+<span class="saved-date">منذ يومين</span>
+</div>
+<div class="saved-item anim" style="transition-delay:.15s" onclick="go('chat')">
+<div class="saved-icon"><svg class="ico"><use href="#ic-shield"/></svg></div>
+<div class="saved-info"><h4>حقوقك في التأمين الصحي</h4><p>معلومات عن التغطية التأمينية...</p></div>
+<span class="saved-date">منذ ٣ أيام</span>
+</div>
+<div class="saved-item anim" style="transition-delay:.2s" onclick="go('chat')">
+<div class="saved-icon"><svg class="ico"><use href="#ic-eye"/></svg></div>
+<div class="saved-info"><h4>التقنيات المساعدة للمكفوفين</h4><p>أحدث الأجهزة والتطبيقات...</p></div>
+<span class="saved-date">منذ أسبوع</span>
+</div>
+<div class="saved-item anim" style="transition-delay:.25s" onclick="go('chat')">
+<div class="saved-icon"><svg class="ico"><use href="#ic-briefcase"/></svg></div>
+<div class="saved-info"><h4>فرص التوظيف المتاحة</h4><p>برامج التأهيل والتوظيف...</p></div>
+<span class="saved-date">منذ أسبوعين</span>
+</div>
+</div>
+<h3 class="dash-section-title anim">مقترحات لك</h3>
+<div class="feat-grid">
+<div class="card anim" style="transition-delay:.1s;cursor:pointer" onclick="go('chat')"><div class="card-icon purple"><svg class="ico"><use href="#ic-graduation"/></svg></div><h3 class="card-title">المنح الدراسية المتاحة</h3><p class="card-desc">اكتشف فرص التعليم والمنح المتخصصة لذوي الإعاقة</p></div>
+<div class="card anim" style="transition-delay:.2s;cursor:pointer" onclick="go('chat')"><div class="card-icon blue"><svg class="ico"><use href="#ic-globe"/></svg></div><h3 class="card-title">حقوقك في السفر</h3><p class="card-desc">تعرف على التسهيلات والخدمات المتاحة عند السفر</p></div>
+<div class="card anim" style="transition-delay:.3s;cursor:pointer" onclick="go('chat')"><div class="card-icon green"><svg class="ico"><use href="#ic-heart"/></svg></div><h3 class="card-title">خدمات الدعم النفسي</h3><p class="card-desc">معلومات عن مراكز الإرشاد والدعم النفسي المتخصصة</p></div>
+</div>
+</div>
+</div>
+<!-- RESOURCES PAGE -->
+<div class="page" id="pg-resources">
+<div class="res-wrap container">
+<div style="margin-bottom:var(--s8)">
+<h1 class="sec-title anim">الموارد والمعلومات</h1>
+<p class="sec-sub anim">مكتبة شاملة من الموارد والأدلة الإرشادية المُيسّرة لذوي الإعاقة</p>
+</div>
+<div class="res-search anim">
+<svg class="ico"><use href="#ic-search"/></svg>
+<input type="text" placeholder="ابحث في الموارد..." aria-label="البحث في الموارد">
+</div>
+<div class="res-filters anim">
+<button class="res-chip on" onclick="filterRes(this)">الكل</button>
+<button class="res-chip" onclick="filterRes(this)">حقوق وتشريعات</button>
+<button class="res-chip" onclick="filterRes(this)">تعليم وتدريب</button>
+<button class="res-chip" onclick="filterRes(this)">خدمات صحية</button>
+<button class="res-chip" onclick="filterRes(this)">تقنيات مساعدة</button>
+<button class="res-chip" onclick="filterRes(this)">توظيف</button>
+<button class="res-chip" onclick="filterRes(this)">دعم مجتمعي</button>
+</div>
+<div class="res-featured card glass anim">
+<span class="tag tag-purple">حقوق وتشريعات</span>
+<h3>الدليل الشامل لحقوق الأشخاص ذوي الإعاقة في المملكة العربية السعودية</h3>
+<p>دليل شامل يوضح الأنظمة واللوائح والحقوق المكفولة للأشخاص ذوي الإعاقة في المملكة العربية السعودية، مع شرح مبسّط للإجراءات والخدمات المتاحة</p>
+<button class="btn btn-md btn-primary" style="align-self:flex-start">اقرأ المزيد</button>
+</div>
+<div class="res-grid">
+<div class="card res-card anim" style="transition-delay:.1s">
+<span class="tag tag-purple">حقوق وتشريعات</span>
+<h4>نظام حقوق الأشخاص ذوي الإعاقة</h4>
+<p>شرح مبسّط لنظام حقوق الأشخاص ذوي الإعاقة والأنظمة واللوائح ذات العلاقة</p>
+<div class="res-card-footer"><span>دليل إرشادي</span><a href="#" onclick="return false">اقرأ المزيد</a></div>
+</div>
+<div class="card res-card anim" style="transition-delay:.15s">
+<span class="tag tag-blue">تعليم وتدريب</span>
+<h4>البرامج التعليمية المُيسّرة</h4>
+<p>اكتشف البرامج التعليمية والمنح الدراسية والفرص التدريبية المتاحة</p>
+<div class="res-card-footer"><span>تعليم</span><a href="#" onclick="return false">اقرأ المزيد</a></div>
+</div>
+<div class="card res-card anim" style="transition-delay:.2s">
+<span class="tag tag-green">تقنيات مساعدة</span>
+<h4>التقنيات المساعدة الحديثة</h4>
+<p>دليل شامل لأحدث التقنيات والأجهزة والتطبيقات المساعدة</p>
+<div class="res-card-footer"><span>تقنية</span><a href="#" onclick="return false">اقرأ المزيد</a></div>
+</div>
+<div class="card res-card anim" style="transition-delay:.25s">
+<span class="tag tag-orange">توظيف</span>
+<h4>فرص العمل والتأهيل المهني</h4>
+<p>معلومات عن برامج التوظيف والتأهيل المهني وحقوق العمل</p>
+<div class="res-card-footer"><span>توظيف</span><a href="#" onclick="return false">اقرأ المزيد</a></div>
+</div>
+<div class="card res-card anim" style="transition-delay:.3s">
+<span class="tag tag-rose">خدمات صحية</span>
+<h4>الخدمات الصحية والتأهيلية</h4>
+<p>دليل المراكز والخدمات الصحية والتأهيلية المتخصصة</p>
+<div class="res-card-footer"><span>صحة</span><a href="#" onclick="return false">اقرأ المزيد</a></div>
+</div>
+<div class="card res-card anim" style="transition-delay:.35s">
+<span class="tag tag-teal">دعم مجتمعي</span>
+<h4>الجمعيات والمنظمات الداعمة</h4>
+<p>قائمة بالجمعيات والمراكز التي تقدم الدعم والمساندة</p>
+<div class="res-card-footer"><span>مجتمع</span><a href="#" onclick="return false">اقرأ المزيد</a></div>
+</div>
+</div>
+</div>
+</div>
+<!-- ABOUT PAGE -->
+<div class="page" id="pg-about">
+<section class="about-hero">
+<div class="about-deco about-deco-1" aria-hidden="true"></div>
+<div class="about-deco about-deco-2" aria-hidden="true"></div>
+<div class="container" style="position:relative;z-index:2">
+<h1 class="anim">عن منصة وصال</h1>
+<p class="anim" style="transition-delay:.1s">نؤمن بأن المعرفة حق للجميع — وصال يجعل الوصول إلى المعلومات أسهل وأكثر شمولاً</p>
+</div>
+</section>
+<section class="sec">
+<div class="container">
+<div class="about-mission">
+<div class="about-mission-text anim">
+<div class="sec-label">رسالتنا</div>
+<h2>ذكاء اصطناعي في خدمة الإنسان</h2>
+<p>نسعى في وصال لتوظيف أحدث تقنيات الذكاء الاصطناعي لخدمة الأشخاص ذوي الإعاقة، من خلال تقديم منصة معرفية شاملة تراعي مختلف الاحتياجات وتضمن إمكانية الوصول للجميع.</p>
+<p>نؤمن بأن التقنية يجب أن تكون أداة تمكين لا عائقاً، ولذلك صممنا وصال ليكون سهل الاستخدام ومُيسّراً بالكامل مع دعم كامل للغة العربية وأنماط التفاعل المختلفة.</p>
+</div>
+<div class="about-mission-visual anim" style="transition-delay:.2s" aria-hidden="true">
+<div class="about-mission-circle"><svg class="ico"><use href="#ic-a11y"/></svg></div>
+</div>
+</div>
+</div>
+</section>
+<section class="sec" style="background:var(--surface-alt)">
+<div class="container">
+<div class="sec-header">
+<div class="sec-label anim">قيمنا</div>
+<h2 class="sec-title anim">ما نؤمن به</h2>
+</div>
+<div class="values-grid">
+<div class="card value-card anim" style="transition-delay:.1s"><div class="value-icon" style="background:var(--g-brand)"><svg class="ico"><use href="#ic-heart"/></svg></div><div><h3>الشمولية</h3><p>نصمم لجميع القدرات والاحتياجات دون استثناء</p></div></div>
+<div class="card value-card anim" style="transition-delay:.2s"><div class="value-icon" style="background:var(--g-accent)"><svg class="ico"><use href="#ic-shield"/></svg></div><div><h3>الموثوقية</h3><p>نلتزم بتقديم معلومات دقيقة من مصادر موثوقة</p></div></div>
+<div class="card value-card anim" style="transition-delay:.3s"><div class="value-icon" style="background:linear-gradient(135deg,#34d399,#10b981)"><svg class="ico"><use href="#ic-a11y"/></svg></div><div><h3>إمكانية الوصول</h3><p>نضع معايير الوصول في صميم كل قرار تصميمي</p></div></div>
+<div class="card value-card anim" style="transition-delay:.4s"><div class="value-icon" style="background:linear-gradient(135deg,#f59e0b,#d97706)"><svg class="ico"><use href="#ic-lightbulb"/></svg></div><div><h3>الابتكار</h3><p>نوظّف أحدث تقنيات الذكاء الاصطناعي لخدمة المستخدم</p></div></div>
+</div>
+</div>
+</section>
+<section class="sec">
+<div class="container">
+<div class="sec-header">
+<div class="sec-label anim">التقنية</div>
+<h2 class="sec-title anim">كيف يعمل الذكاء الاصطناعي في وصال</h2>
+</div>
+<div class="how-steps">
+<div class="how-step anim" style="transition-delay:.1s"><div class="how-num" style="font-size:var(--f-h1)">🧠</div><h3>فهم السياق</h3><p>يحلل وصال سؤالك ويفهم السياق والنية وراءه لتقديم أدق إجابة ممكنة</p></div>
+<div class="how-step anim" style="transition-delay:.2s"><div class="how-num" style="font-size:var(--f-h1)">📚</div><h3>البحث الذكي</h3><p>يبحث في قاعدة معرفية واسعة من المصادر الموثوقة والمحدّثة باستمرار</p></div>
+<div class="how-step anim" style="transition-delay:.3s"><div class="how-num" style="font-size:var(--f-h1)">✨</div><h3>تبسيط الإجابة</h3><p>يصيغ الإجابة بأسلوب واضح ومبسّط يتناسب مع تفضيلاتك واحتياجاتك</p></div>
+</div>
+</div>
+</section>
+</div>
+<!-- CONTACT PAGE -->
+<div class="page" id="pg-contact">
+<div class="contact-wrap container">
+<div style="margin-bottom:var(--s8)">
+<h1 class="sec-title anim">تواصل معنا</h1>
+<p class="sec-sub anim">نسعد بتواصلك — أخبرنا كيف يمكننا مساعدتك أو تحسين تجربتك</p>
+</div>
+<div class="contact-grid">
+<div class="anim">
+<form onsubmit="event.preventDefault();alert('تم إرسال رسالتك بنجاح!')" aria-label="نموذج التواصل">
+<div class="form-group"><label for="cName">الاسم</label><input type="text" id="cName" class="form-input" placeholder="أدخل اسمك" required></div>
+<div class="form-group"><label for="cEmail">البريد الإلكتروني</label><input type="email" id="cEmail" class="form-input" placeholder="example@email.com" required></div>
+<div class="form-group"><label for="cSubject">الموضوع</label><select id="cSubject" class="form-input" required><option value="">اختر الموضوع</option><option>استفسار عام</option><option>اقتراح</option><option>مشكلة تقنية</option><option>ملاحظات</option></select></div>
+<div class="form-group"><label for="cMsg">الرسالة</label><textarea id="cMsg" class="form-input" placeholder="اكتب رسالتك هنا..." required></textarea></div>
+<button type="submit" class="btn btn-lg btn-primary" style="width:100%;justify-content:center"><svg class="ico"><use href="#ic-send"/></svg> إرسال الرسالة</button>
+</form>
+</div>
+<div class="anim" style="transition-delay:.2s">
+<div class="contact-info">
+<div class="card contact-card glass"><div class="contact-card-icon" style="background:var(--g-brand)"><svg class="ico"><use href="#ic-mail"/></svg></div><div><h4>البريد الإلكتروني</h4><p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2c45424a436c5b495f4d40025f4d">[email&#160;protected]</a></p></div></div>
+<div class="card contact-card glass"><div class="contact-card-icon" style="background:var(--g-accent)"><svg class="ico"><use href="#ic-phone"/></svg></div><div><h4>الهاتف</h4><p style="direction:ltr;text-align:right">٩٢٠٠١٢٣٤٥</p></div></div>
+<div class="card contact-card glass"><div class="contact-card-icon" style="background:linear-gradient(135deg,#34d399,#10b981)"><svg class="ico"><use href="#ic-clock"/></svg></div><div><h4>أوقات الدعم</h4><p>الأحد - الخميس، ٨ ص - ٦ م</p></div></div>
+</div>
+<div class="card rating-sec glass" style="margin-top:var(--s6)">
+<h3>قيّم تجربتك مع وصال</h3>
+<div class="stars" role="group" aria-label="تقييم">
+<button class="star-btn" onclick="rate(1)" aria-label="نجمة واحدة"><svg class="ico"><use href="#ic-star"/></svg></button>
+<button class="star-btn" onclick="rate(2)" aria-label="نجمتان"><svg class="ico"><use href="#ic-star"/></svg></button>
+<button class="star-btn" onclick="rate(3)" aria-label="ثلاث نجوم"><svg class="ico"><use href="#ic-star"/></svg></button>
+<button class="star-btn" onclick="rate(4)" aria-label="أربع نجوم"><svg class="ico"><use href="#ic-star"/></svg></button>
+<button class="star-btn" onclick="rate(5)" aria-label="خمس نجوم"><svg class="ico"><use href="#ic-star"/></svg></button>
+</div>
+<button class="btn btn-md btn-surface" onclick="alert('شكراً لتقييمك!')">إرسال التقييم</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="footer" role="contentinfo">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-brand">
+<img src="logo.png" alt="وصال" height="36" style="filter:brightness(0) invert(1);margin-bottom:var(--s2)">
+<p>منصة ذكاء اصطناعي مُيسّرة مصممة لمساعدة الأشخاص ذوي الإعاقة في الوصول إلى المعرفة والمعلومات الموثوقة</p>
+<div class="footer-social">
+<button class="footer-social-btn" aria-label="تويتر"><svg class="ico" style="width:16px;height:16px"><use href="#ic-globe"/></svg></button>
+<button class="footer-social-btn" aria-label="لينكد إن"><svg class="ico" style="width:16px;height:16px"><use href="#ic-users"/></svg></button>
+<button class="footer-social-btn" aria-label="يوتيوب"><svg class="ico" style="width:16px;height:16px"><use href="#ic-heart"/></svg></button>
+</div>
+</div>
+<div>
+<h4>روابط سريعة</h4>
+<button class="footer-link" onclick="go('home')">الرئيسية</button>
+<button class="footer-link" onclick="go('chat')">المحادثة الذكية</button>
+<button class="footer-link" onclick="go('resources')">الموارد والمعلومات</button>
+<button class="footer-link" onclick="go('about')">عن وصال</button>
+</div>
+<div>
+<h4>الدعم</h4>
+<button class="footer-link" onclick="go('settings')">إمكانية الوصول</button>
+<button class="footer-link" onclick="go('contact')">تواصل معنا</button>
+<button class="footer-link" onclick="go('dashboard')">لوحة التحكم</button>
+<button class="footer-link">الأسئلة الشائعة</button>
+</div>
+<div>
+<h4>تواصل</h4>
+<p style="font-size:var(--f-sm);margin-bottom:var(--s2)"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="11787f777e51667462707d3f6270">[email&#160;protected]</a></p>
+<p style="font-size:var(--f-sm);margin-bottom:var(--s2)">٩٢٠٠١٢٣٤٥</p>
+<p style="font-size:var(--f-sm)">الأحد - الخميس، ٨ ص - ٦ م</p>
+</div>
+</div>
+<div class="footer-bottom">
+<span>© ٢٠٢٦ وصال — جميع الحقوق محفوظة</span>
+<span>صُمم بعناية لخدمة الجميع</span>
+</div>
+</div>
+</footer>
+<div class="fab" id="fab">
+<div class="fab-popup glass" id="fabPopup">
+<h3>إعدادات سريعة</h3>
+<div class="fab-row"><span>حجم الخط</span>
+<div class="fab-fs"><button class="fab-fs-btn" onclick="setFS(_fs-10)">أ-</button><button class="fab-fs-btn" onclick="setFS(100)">أ</button><button class="fab-fs-btn" onclick="setFS(_fs+10)">أ+</button></div>
+</div>
+<div class="fab-row"><span>تباين عالي</span><label class="toggle"><input type="checkbox" onchange="setC(this.checked?'high':'')"><span class="toggle-track"></span></label></div>
+<div class="fab-row"><span>الوضع الداكن</span><label class="toggle"><input type="checkbox" onchange="setC(this.checked?'dark':'')"><span class="toggle-track"></span></label></div>
+<div class="fab-row"><span>تقليل الحركة</span><label class="toggle"><input type="checkbox" onchange="document.documentElement.setAttribute('data-reduce-motion',this.checked)"><span class="toggle-track"></span></label></div>
+<button class="fab-link" onclick="go('settings');toggleA11y()">جميع إعدادات الوصول</button>
+</div>
+<button class="fab-btn" onclick="toggleA11y()" aria-label="إعدادات إمكانية الوصول"><svg class="ico"><use href="#ic-a11y"/></svg></button>
+</div>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+let _fs=100,_rec=null,_curPage='home';
+const pages=['home','chat','settings','dashboard','resources','about','contact'];
+const replies=[
+'بناءً على الأنظمة السارية في المملكة العربية السعودية، يحق للأشخاص ذوي الإعاقة الحصول على فرص عمل متكافئة. يلزم نظام العمل أصحاب العمل بتوفير بيئة عمل مُيسّرة وتهيئة المرافق وفقاً لاحتياجات الموظفين من ذوي الإعاقة. كما يُحظر التمييز في التوظيف على أساس الإعاقة.',
+'للحصول على بطاقة الإعاقة، يمكنك التقدم عبر منصة "موعد" الإلكترونية أو زيارة أقرب مركز للتأهيل الشامل. ستحتاج إلى تقرير طبي حديث وصورة من الهوية الوطنية. تستغرق العملية عادةً من أسبوعين إلى شهر.',
+'تتوفر العديد من البرامج التعليمية المُيسّرة لذوي الإعاقة، منها: برامج التعليم الدامج في المدارس العامة، معاهد التربية الفكرية، برامج تعليم المكفوفين والصم، بالإضافة إلى المنح الدراسية المخصصة للتعليم الجامعي.',
+'يقدم الضمان الاجتماعي المطوّر دعماً مالياً للأشخاص ذوي الإعاقة المستحقين. يمكنك التقديم عبر منصة الضمان الاجتماعي الإلكترونية. كما تقدم هيئة رعاية الأشخاص ذوي الإعاقة برامج دعم إضافية تشمل الإعانات المالية والأجهزة التعويضية.',
+'من أحدث التقنيات المساعدة المتاحة: قارئات الشاشة مثل NVDA وVoiceOver، تطبيقات تحويل النص إلى كلام، لوحات المفاتيح البديلة، أجهزة التحكم بالعين، والأطراف الصناعية الذكية. يمكن الحصول على كثير من هذه التقنيات بدعم من الجهات المختصة.',
+'يشمل التأمين الصحي لذوي الإعاقة تغطية شاملة للعلاج والتأهيل والأجهزة التعويضية. في المملكة، يحق لكل شخص من ذوي الإعاقة الحصول على خدمات صحية مجانية في المرافق الحكومية، وتغطية تأمينية خاصة تشمل جلسات العلاج الطبيعي والنفسي.',
+'نعم، يحق لذوي الإعاقة الحصول على تخفيضات وإعفاءات في عدة مجالات تشمل: تخفيض على رسوم النقل العام، إعفاء من رسوم بعض الخدمات الحكومية، أولوية في السكن الاجتماعي، وتسهيلات في القروض البنكية. يمكنك الاستفسار عن التفاصيل حسب حالتك.',
+'يوفر وصال معلومات شاملة عن مراكز التأهيل المهني المعتمدة في مختلف مناطق المملكة. تقدم هذه المراكز برامج تدريبية متنوعة تشمل المهارات الحاسوبية، الحرف اليدوية، وبرامج التأهيل الوظيفي بالتعاون مع القطاع الخاص.'
+];
+
+function go(p){
+if(!pages.includes(p))return;
+_curPage=p;
+document.querySelectorAll('.page').forEach(pg=>pg.classList.remove('active'));
+document.getElementById('pg-'+p).classList.add('active');
+document.querySelectorAll('.nav-link,.mob-link').forEach(l=>{
+l.classList.toggle('on',l.getAttribute('data-pg')===p);
+});
+window.scrollTo({top:0,behavior:'smooth'});
+if(p==='home'){
+document.getElementById('nav').classList.remove('scrolled');
+}else{
+document.getElementById('nav').classList.add('scrolled');
+}
+setTimeout(initAnims,100);
+}
+
+function toggleMob(){
+const m=document.getElementById('mobMenu'),o=document.getElementById('mobOverlay'),b=document.getElementById('burger');
+const open=m.classList.toggle('open');
+o.classList.toggle('open',open);
+b.classList.toggle('active',open);
+b.setAttribute('aria-expanded',open);
+}
+
+// Scroll
+window.addEventListener('scroll',()=>{
+const nav=document.getElementById('nav');
+if(_curPage==='home'){
+nav.classList.toggle('scrolled',window.scrollY>40);
+}
+},{passive:true});
+
+// Font size
+function setFS(v){
+_fs=Math.max(80,Math.min(150,v));
+document.documentElement.style.setProperty('--f-scale',_fs);
+const d=document.getElementById('fsVal');
+if(d)d.textContent=String(_fs).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d])+'٪';
+}
+
+// Contrast
+function setC(mode){
+document.documentElement.setAttribute('data-contrast',mode||'');
+document.querySelectorAll('#contrastBtns .setting-btn').forEach((b,i)=>{
+b.classList.toggle('on',(mode===''&&i===0)||(mode==='high'&&i===1)||(mode==='dark'&&i===2));
+});
+}
+
+// Chat
+function send(){
+const inp=document.getElementById('chatInput');
+const txt=inp.value.trim();
+if(!txt)return;
+inp.value='';
+inp.style.height='auto';
+const chips=document.getElementById('chatChips');
+if(chips)chips.style.display='none';
+addMsg('user',txt);
+showTyping();
+setTimeout(()=>{hideTyping();addMsg('ai',generateReply(txt));},800+Math.random()*800);
+}
+function addMsg(role,text){
+const body=document.getElementById('chatBody');
+const d=document.createElement('div');
+d.className='msg msg-'+(role==='user'?'user':'ai');
+if(role==='user'){
+d.innerHTML='<div class="msg-avatar">أ</div><div><div class="msg-bubble">'+esc(text)+'</div></div>';
+}else{
+d.innerHTML='<div class="msg-avatar">و</div><div><div class="msg-bubble">'+esc(text)+'</div><div class="msg-actions"><button class="msg-act-btn" onclick="copyMsg(this)" aria-label="نسخ"><svg class="ico" style="width:14px;height:14px"><use href="#ic-copy"/></svg></button><button class="msg-act-btn" onclick="speakMsg(this)" aria-label="قراءة صوتية"><svg class="ico" style="width:14px;height:14px"><use href="#ic-volume"/></svg></button><button class="msg-act-btn" aria-label="حفظ"><svg class="ico" style="width:14px;height:14px"><use href="#ic-bookmark"/></svg></button></div></div>';
+}
+body.appendChild(d);
+body.scrollTop=body.scrollHeight;
+}
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function showTyping(){
+const body=document.getElementById('chatBody');
+let t=document.getElementById('typingInd');
+if(!t){t=document.createElement('div');t.id='typingInd';t.className='typing';t.innerHTML='<span></span><span></span><span></span>';body.appendChild(t);}
+body.scrollTop=body.scrollHeight;
+}
+function hideTyping(){const t=document.getElementById('typingInd');if(t)t.remove();}
+function generateReply(q){return replies[Math.floor(Math.random()*replies.length)];}
+function askSug(btn){
+const txt=btn.textContent.trim();
+go('chat');
+setTimeout(()=>{document.getElementById('chatInput').value=txt;send();},200);
+}
+function copyMsg(btn){
+const bubble=btn.closest('.msg').querySelector('.msg-bubble');
+if(bubble)navigator.clipboard.writeText(bubble.textContent).then(()=>{btn.style.color='var(--primary)';setTimeout(()=>btn.style.color='',1500);});
+}
+function speakMsg(btn){
+if('speechSynthesis' in window){
+window.speechSynthesis.cancel();
+const bubble=btn?btn.closest('.msg')?.querySelector('.msg-bubble'):null;
+if(!bubble)return;
+const u=new SpeechSynthesisUtterance(bubble.textContent);
+u.lang='ar-SA';u.rate=1;
+window.speechSynthesis.speak(u);
+}
+}
+function toggleMode(btn){
+btn.parentElement.querySelectorAll('.chat-mode-btn').forEach(b=>b.classList.remove('on'));
+btn.classList.add('on');
+}
+function chatKey(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send();}}
+function autoResize(el){el.style.height='auto';el.style.height=Math.min(el.scrollHeight,120)+'px';}
+
+// Hero ask
+function heroAsk(){
+const inp=document.getElementById('heroInput');
+const txt=inp.value.trim();
+if(!txt)return;
+go('chat');
+setTimeout(()=>{document.getElementById('chatInput').value=txt;inp.value='';send();},200);
+}
+
+// Voice
+function toggleVoice(){
+const btn=document.getElementById('voiceBtn');
+if(!('webkitSpeechRecognition' in window||'SpeechRecognition' in window)){alert('المتصفح لا يدعم التعرف الصوتي');return;}
+if(_rec){_rec.stop();_rec=null;btn.classList.remove('recording');return;}
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+_rec=new SR();_rec.lang='ar-SA';_rec.continuous=false;_rec.interimResults=false;
+_rec.onresult=e=>{document.getElementById('chatInput').value=e.results[0][0].transcript;_rec=null;btn.classList.remove('recording');};
+_rec.onerror=()=>{_rec=null;btn.classList.remove('recording');};
+_rec.onend=()=>{_rec=null;btn.classList.remove('recording');};
+_rec.start();btn.classList.add('recording');
+}
+
+// A11y FAB
+function toggleA11y(){document.getElementById('fabPopup').classList.toggle('open');}
+
+// Star rating
+function rate(n){
+document.querySelectorAll('.star-btn').forEach((b,i)=>b.classList.toggle('active',i<n));
+}
+
+// Resource filter
+function filterRes(btn){
+btn.parentElement.querySelectorAll('.res-chip').forEach(b=>b.classList.remove('on'));
+btn.classList.add('on');
+}
+
+// Intersection Observer for .anim
+function initAnims(){
+const obs=new IntersectionObserver((entries)=>{
+entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});
+},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.anim:not(.in)').forEach(el=>obs.observe(el));
+}
+
+// Escape key
+document.addEventListener('keydown',e=>{
+if(e.key==='Escape'){
+document.getElementById('fabPopup').classList.remove('open');
+if(document.getElementById('mobMenu').classList.contains('open'))toggleMob();
+}
+});
+
+// Init
+document.addEventListener('DOMContentLoaded',()=>{
+initAnims();
+// Trigger hero anims immediately
+setTimeout(()=>{document.querySelectorAll('.hero .anim').forEach(el=>el.classList.add('in'));},100);
+});
+</script>
+</body>
+</html>
