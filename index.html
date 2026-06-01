@@ -7,7 +7,7 @@
 <title>وصال — رفيقك الذكي للوصول إلى المعرفة</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 @font-face{font-family:'GE SS Two';font-weight:300;font-style:normal;src:local('GE SS Two Light'),local('GESSTwoLight');}
 @font-face{font-family:'GE SS Two';font-weight:500;font-style:normal;src:local('GE SS Two Medium'),local('GESSTwoMedium');}
@@ -53,9 +53,10 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
 .nav.scrolled{background:rgba(255,255,255,.8);backdrop-filter:blur(20px) saturate(1.3);-webkit-backdrop-filter:blur(20px) saturate(1.3);box-shadow:var(--sh-sm);}
 [data-contrast="dark"] .nav.scrolled{background:rgba(15,13,26,.85);}
 .nav-inner{display:flex;align-items:center;gap:var(--s6);max-width:1200px;margin:0 auto;padding:0 var(--s6);}
-.nav-logo img{height:40px;filter:brightness(0) invert(1);transition:filter var(--dur-md) var(--ease);}
-.nav.scrolled .nav-logo img{filter:none;}
-[data-contrast="dark"] .nav-logo img{filter:brightness(0) invert(1);}
+.nav-logo img{height:40px;object-fit:contain;transition:opacity var(--dur-md) var(--ease);}
+.nav.scrolled .nav-logo img{opacity:1;}
+[data-contrast="dark"] .nav-logo img{opacity:1;}
+[data-contrast="high"] .nav-logo img{opacity:1;}
 .nav-links{display:flex;gap:var(--s1);margin-right:auto;}
 .nav-link{background:none;border:none;font-family:inherit;font-size:var(--f-sm);font-weight:500;color:rgba(255,255,255,.8);padding:var(--s2) var(--s3);border-radius:var(--r-sm);cursor:pointer;position:relative;transition:color var(--dur) var(--ease),background var(--dur) var(--ease);}
 .nav.scrolled .nav-link{color:var(--text);}
@@ -308,11 +309,12 @@ body::before{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
 .res-featured .tag{align-self:flex-start;}
 .res-featured h3{font-size:var(--f-h2);font-weight:700;color:var(--ink);}
 .res-featured p{font-size:var(--f-sm);color:var(--muted);max-width:700px;}
+.res-featured button{align-self:flex-start;}
 .res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s6);}
 .res-card{display:flex;flex-direction:column;gap:var(--s3);}
 .res-card .tag{align-self:flex-start;}
 .res-card h4{font-size:var(--f-h3);font-weight:600;color:var(--ink);}
-.res-card p{font-size:var(--f-sm);color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.res-card p{font-size:var(--f-sm);color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;line-clamp:2;}
 .res-card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:var(--s3);border-top:1px solid var(--border);}
 .res-card-footer span{font-size:var(--f-xs);color:var(--muted);}
 .res-card-footer a{font-size:var(--f-xs);color:var(--secondary);text-decoration:none;font-weight:600;}
@@ -364,6 +366,7 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 
 /* FOOTER */
 .footer{background:var(--navy);color:rgba(255,255,255,.7);padding:var(--s16) var(--s6) 0;}
+.footer-num{font-family:'Montserrat',system-ui,sans-serif;font-weight:500}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:var(--s8);margin-bottom:var(--s12);}
 .footer-brand p{font-size:var(--f-sm);line-height:1.8;margin:var(--s4) 0;max-width:280px;}
 .footer-social{display:flex;gap:var(--s2);}
@@ -436,7 +439,7 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 </svg>
 <nav class="nav" id="nav" role="navigation" aria-label="التنقل الرئيسي">
 <div class="nav-inner">
-<a href="#" class="nav-logo" onclick="go('home');return false" aria-label="وصال - الصفحة الرئيسية"><img src="logo.png" alt="شعار وصال" width="120" height="40"></a>
+<a href="#" class="nav-logo" onclick="go('home');return false" aria-label="وصال - الصفحة الرئيسية"><img id="navLogoImg" src="https://drive.google.com/uc?id=1X-xT-XnygeIW8q5ox3Z7NSntkcnJebwD" alt="شعار وصال" width="120" height="40" style="object-fit:contain"></a>
 <div class="nav-links">
 <button class="nav-link on" onclick="go('home')" data-pg="home">الرئيسية</button>
 <button class="nav-link" onclick="go('chat')" data-pg="chat">المحادثة الذكية</button>
@@ -444,6 +447,7 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 <button class="nav-link" onclick="go('dashboard')" data-pg="dashboard">لوحة التحكم</button>
 <button class="nav-link" onclick="go('about')" data-pg="about">عن وصال</button>
 <button class="nav-link" onclick="go('contact')" data-pg="contact">تواصل معنا</button>
+<button class="nav-link" onclick="go('auth')" data-pg="auth" id="navAuthBtn">تسجيل الدخول</button>
 </div>
 <button class="nav-cta" onclick="go('chat')" aria-label="ابدأ محادثة">ابدأ محادثة</button>
 <button class="nav-a11y-btn" onclick="toggleA11y()" aria-label="إعدادات إمكانية الوصول"><svg class="ico"><use href="#ic-a11y"/></svg></button>
@@ -460,12 +464,12 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 <button class="mob-link" onclick="go('dashboard');toggleMob()" data-pg="dashboard">لوحة التحكم</button>
 <button class="mob-link" onclick="go('about');toggleMob()" data-pg="about">عن وصال</button>
 <button class="mob-link" onclick="go('contact');toggleMob()" data-pg="contact">تواصل معنا</button>
+<button class="mob-link" onclick="go('auth');toggleMob()" data-pg="auth" id="mobAuthBtn">تسجيل الدخول</button>
 <button class="mob-cta" onclick="go('settings');toggleMob()"><svg class="ico" style="width:16px;height:16px;vertical-align:middle;margin-left:4px"><use href="#ic-a11y"/></svg> إعدادات الوصول</button>
 </div>
 <main id="main">
 <div class="page active" id="pg-home">
 
-<!-- HERO -->
 <section class="hero" aria-label="القسم الرئيسي">
 <div class="hero-deco" aria-hidden="true">
 <svg style="position:absolute;top:10%;right:5%;width:400px;opacity:.12" viewBox="0 0 400 400"><path d="M50 200 Q150 50 250 200 T400 200" fill="none" stroke="#52bdf9" stroke-width="1.5"/><path d="M0 250 Q100 100 200 250 T400 250" fill="none" stroke="#52bdf9" stroke-width="1"/></svg>
@@ -490,16 +494,15 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 <button class="btn btn-lg btn-outline" onclick="go('about')"><svg class="ico"><use href="#ic-info"/></svg> تعرّف على المنصة</button>
 </div>
 <div class="hero-trust anim" style="transition-delay:.6s">
-<div class="hero-trust-item"><strong>+١٠,٠٠٠</strong><span>مستخدم</span></div>
+<div class="hero-trust-item"><strong style="font-family:'Montserrat',system-ui,sans-serif;font-size:var(--f-h3)">10,000+</strong><span>مستخدم</span></div>
 <div class="hero-trust-div" aria-hidden="true"></div>
-<div class="hero-trust-item"><strong>٩٨٪</strong><span>رضا</span></div>
+<div class="hero-trust-item"><strong style="font-family:'Montserrat',system-ui,sans-serif;font-size:var(--f-h3)">98%</strong><span>رضا</span></div>
 <div class="hero-trust-div" aria-hidden="true"></div>
-<div class="hero-trust-item"><strong>٢٤/٧</strong><span>متاح</span></div>
+<div class="hero-trust-item"><strong style="font-family:'Montserrat',system-ui,sans-serif;font-size:var(--f-h3)">24/7</strong><span>متاح</span></div>
 </div>
 </div>
 </section>
 
-<!-- FEATURES -->
 <section class="sec" aria-label="المزايا">
 <div class="container">
 <div class="sec-header">
@@ -518,7 +521,6 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 </div>
 </section>
 
-<!-- HOW IT WORKS -->
 <section class="sec how-sec" aria-label="كيف يعمل وصال">
 <div class="container">
 <div class="sec-header">
@@ -526,26 +528,24 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 <h2 class="sec-title anim">كيف يعمل وصال؟</h2>
 </div>
 <div class="how-steps">
-<div class="how-step anim" style="transition-delay:.1s"><div class="how-num">٠١</div><h3>اسأل سؤالك</h3><p>اكتب أو انطق سؤالك بالعربية — وصال يفهم لغتك الطبيعية</p></div>
-<div class="how-step anim" style="transition-delay:.3s"><div class="how-num">٠٢</div><h3>وصال يبحث لك</h3><p>يحلل وصال سؤالك ويبحث في قاعدة المعرفة عن أفضل إجابة</p></div>
-<div class="how-step anim" style="transition-delay:.5s"><div class="how-num">٠٣</div><h3>احصل على الإجابة</h3><p>تحصل على إجابة واضحة ومبسّطة مع إمكانية طلب مزيد من التفصيل</p></div>
+<div class="how-step anim" style="transition-delay:.1s"><div class="how-num" style="font-family:'Montserrat',system-ui,sans-serif">01</div><h3>اسأل سؤالك</h3><p>اكتب أو انطق سؤالك بالعربية — وصال يفهم لغتك الطبيعية</p></div>
+<div class="how-step anim" style="transition-delay:.3s"><div class="how-num" style="font-family:'Montserrat',system-ui,sans-serif">02</div><h3>وصال يبحث لك</h3><p>يحلل وصال سؤالك ويبحث في قاعدة المعرفة عن أفضل إجابة</p></div>
+<div class="how-step anim" style="transition-delay:.5s"><div class="how-num" style="font-family:'Montserrat',system-ui,sans-serif">03</div><h3>احصل على الإجابة</h3><p>تحصل على إجابة واضحة ومبسّطة مع إمكانية طلب مزيد من التفصيل</p></div>
 </div>
 </div>
 </section>
 
-<!-- STATS -->
 <section class="sec" aria-label="إحصائيات">
 <div class="container">
 <div class="stats-grid">
-<div class="card stat-card anim" style="transition-delay:.1s"><div class="stat-num">١٠,٠٠٠+</div><div class="stat-label">مستخدم نشط</div></div>
-<div class="card stat-card anim" style="transition-delay:.2s"><div class="stat-num">٥٠,٠٠٠+</div><div class="stat-label">سؤال تمت الإجابة عليه</div></div>
-<div class="card stat-card anim" style="transition-delay:.3s"><div class="stat-num">٩٨٪</div><div class="stat-label">معدل رضا المستخدمين</div></div>
-<div class="card stat-card anim" style="transition-delay:.4s"><div class="stat-num">٢٤/٧</div><div class="stat-label">متاح على مدار الساعة</div></div>
+<div class="card stat-card anim" style="transition-delay:.1s"><div class="stat-num" style="font-family:'Montserrat',system-ui,sans-serif">10,000+</div><div class="stat-label">مستخدم نشط</div></div>
+<div class="card stat-card anim" style="transition-delay:.2s"><div class="stat-num" style="font-family:'Montserrat',system-ui,sans-serif">50,000+</div><div class="stat-label">سؤال تمت الإجابة عليه</div></div>
+<div class="card stat-card anim" style="transition-delay:.3s"><div class="stat-num" style="font-family:'Montserrat',system-ui,sans-serif">98%</div><div class="stat-label">معدل رضا المستخدمين</div></div>
+<div class="card stat-card anim" style="transition-delay:.4s"><div class="stat-num" style="font-family:'Montserrat',system-ui,sans-serif">24/7</div><div class="stat-label">متاح على مدار الساعة</div></div>
 </div>
 </div>
 </section>
 
-<!-- TESTIMONIALS -->
 <section class="sec" style="background:var(--surface-alt)" aria-label="آراء المستخدمين">
 <div class="container">
 <div class="sec-header">
@@ -569,7 +569,6 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 </div>
 </section>
 
-<!-- CTA -->
 <section class="cta-sec" aria-label="دعوة للعمل">
 <div class="cta-deco cta-deco-1" aria-hidden="true"></div>
 <div class="cta-deco cta-deco-2" aria-hidden="true"></div>
@@ -582,7 +581,6 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 
 </div>
 
-<!-- CHAT PAGE -->
 <div class="page" id="pg-chat">
 <div class="chat-wrap">
 <aside class="chat-sidebar" aria-label="المواضيع المقترحة">
@@ -636,7 +634,6 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 </div>
 </div>
 </div>
-<!-- SETTINGS PAGE -->
 <div class="page" id="pg-settings">
 <div class="settings-wrap container">
 <div class="sec-header" style="text-align:right;margin-bottom:var(--s8);">
@@ -683,7 +680,6 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 </div>
 </div>
 </div>
-<!-- DASHBOARD PAGE -->
 <div class="page" id="pg-dashboard">
 <div class="dash-wrap container">
 <div class="dash-welcome anim">
@@ -693,15 +689,15 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 <div class="dash-stats">
 <div class="card dash-stat glass anim" style="transition-delay:.1s">
 <div class="dash-stat-icon" style="background:rgba(129,79,195,.1);color:var(--secondary)"><svg class="ico ico-lg"><use href="#ic-chat"/></svg></div>
-<div><div class="dash-stat-num">١٢</div><div class="dash-stat-label">محادثة</div></div>
+<div><div class="dash-stat-num" style="font-family:'Montserrat',system-ui,sans-serif">12</div><div class="dash-stat-label">محادثة</div></div>
 </div>
 <div class="card dash-stat glass anim" style="transition-delay:.2s">
 <div class="dash-stat-icon" style="background:rgba(62,158,237,.1);color:var(--blue)"><svg class="ico ico-lg"><use href="#ic-lightbulb"/></svg></div>
-<div><div class="dash-stat-num">٤٨</div><div class="dash-stat-label">سؤال</div></div>
+<div><div class="dash-stat-num" style="font-family:'Montserrat',system-ui,sans-serif">48</div><div class="dash-stat-label">سؤال</div></div>
 </div>
 <div class="card dash-stat glass anim" style="transition-delay:.3s">
 <div class="dash-stat-icon" style="background:rgba(16,185,129,.1);color:#10b981"><svg class="ico ico-lg"><use href="#ic-bookmark"/></svg></div>
-<div><div class="dash-stat-num">٨</div><div class="dash-stat-label">محفوظ</div></div>
+<div><div class="dash-stat-num" style="font-family:'Montserrat',system-ui,sans-serif">8</div><div class="dash-stat-label">محفوظ</div></div>
 </div>
 </div>
 <div class="dash-shortcuts anim">
@@ -741,7 +737,6 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 </div>
 </div>
 </div>
-<!-- RESOURCES PAGE -->
 <div class="page" id="pg-resources">
 <div class="res-wrap container">
 <div style="margin-bottom:var(--s8)">
@@ -807,7 +802,6 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 </div>
 </div>
 </div>
-<!-- ABOUT PAGE -->
 <div class="page" id="pg-about">
 <section class="about-hero">
 <div class="about-deco about-deco-1" aria-hidden="true"></div>
@@ -860,7 +854,6 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 </div>
 </section>
 </div>
-<!-- CONTACT PAGE -->
 <div class="page" id="pg-contact">
 <div class="contact-wrap container">
 <div style="margin-bottom:var(--s8)">
@@ -879,9 +872,9 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 </div>
 <div class="anim" style="transition-delay:.2s">
 <div class="contact-info">
-<div class="card contact-card glass"><div class="contact-card-icon" style="background:var(--g-brand)"><svg class="ico"><use href="#ic-mail"/></svg></div><div><h4>البريد الإلكتروني</h4><p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2c45424a436c5b495f4d40025f4d">[email&#160;protected]</a></p></div></div>
-<div class="card contact-card glass"><div class="contact-card-icon" style="background:var(--g-accent)"><svg class="ico"><use href="#ic-phone"/></svg></div><div><h4>الهاتف</h4><p style="direction:ltr;text-align:right">٩٢٠٠١٢٣٤٥</p></div></div>
-<div class="card contact-card glass"><div class="contact-card-icon" style="background:linear-gradient(135deg,#34d399,#10b981)"><svg class="ico"><use href="#ic-clock"/></svg></div><div><h4>أوقات الدعم</h4><p>الأحد - الخميس، ٨ ص - ٦ م</p></div></div>
+<div class="card contact-card glass"><div class="contact-card-icon" style="background:var(--g-brand)"><svg class="ico"><use href="#ic-mail"/></svg></div><div><h4>البريد الإلكتروني</h4><p><a href="mailto:info@wesal-hub.com" style="color:var(--muted);text-decoration:none">info@wesal-hub.com</a></p></div></div>
+<div class="card contact-card glass"><div class="contact-card-icon" style="background:var(--g-accent)"><svg class="ico"><use href="#ic-phone"/></svg></div><div><h4>الهاتف والواتس</h4><p><a href="https://api.whatsapp.com/send?phone=966501120161" target="_blank" style="color:var(--muted);text-decoration:none;font-family:'Montserrat',system-ui,sans-serif;direction:ltr;text-align:right;display:inline-block">+966 50 112 0161</a></p></div></div>
+<div class="card contact-card glass"><div class="contact-card-icon" style="background:linear-gradient(135deg,#34d399,#10b981)"><svg class="ico"><use href="#ic-clock"/></svg></div><div><h4>أوقات الدعم</h4><p>السبت - الخميس<br><span style="font-family:'Montserrat',system-ui,sans-serif">08:00 AM - 06:00 PM</span></p></div></div>
 </div>
 <div class="card rating-sec glass" style="margin-top:var(--s6)">
 <h3>قيّم تجربتك مع وصال</h3>
@@ -898,17 +891,49 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 </div>
 </div>
 </div>
+
+<div class="page" id="pg-auth">
+  <div class="contact-wrap container">
+    <div class="sec-header" style="text-align:center; margin-bottom:var(--s8);">
+      <h1 class="sec-title anim" id="authTitle">تسجيل الدخول</h1>
+      <p class="sec-sub anim" style="margin-inline:auto;">مرحباً بك في وصال، يرجى إدخال بياناتك للمتابعة</p>
+    </div>
+    
+    <div style="max-width: 450px; margin: 0 auto;" class="anim card glass">
+      <form id="authForm" onsubmit="event.preventDefault(); window.handleAuth();" aria-label="نموذج الدخول">
+        <div class="form-group">
+          <label for="authEmail">البريد الإلكتروني</label>
+          <input type="email" id="authEmail" class="form-input" placeholder="name@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="authPassword">كلمة المرور</label>
+          <input type="password" id="authPassword" class="form-input" placeholder="••••••••" required minlength="6">
+        </div>
+        
+        <div id="authError" style="color: #e11d48; font-size: var(--f-sm); margin-bottom: 15px; text-align: center; display: none; background: rgba(244,63,94,.1); padding: 10px; border-radius: var(--r-sm);"></div>
+        
+        <button type="submit" class="btn btn-lg btn-primary" style="width:100%; justify-content:center;" id="authSubmitBtn">دخول</button>
+        
+        <div style="text-align:center; margin-top:20px;">
+          <button type="button" onclick="window.toggleAuthMode()" id="authToggleLink" style="background:none; border:none; color:var(--secondary); font-family:inherit; font-size:var(--f-sm); font-weight:600; cursor:pointer;">ليس لديك حساب؟ سجل الآن</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 </main>
 <footer class="footer" role="contentinfo">
 <div class="container">
 <div class="footer-grid">
 <div class="footer-brand">
-<img src="logo.png" alt="وصال" height="36" style="filter:brightness(0) invert(1);margin-bottom:var(--s2)">
+<img src="https://drive.google.com/uc?id=1X-xT-XnygeIW8q5ox3Z7NSntkcnJebwD" alt="شعار وصال" style="height:36px;object-fit:contain;filter:brightness(0) invert(1);margin-bottom:var(--s2)">
 <p>منصة ذكاء اصطناعي مُيسّرة مصممة لمساعدة الأشخاص ذوي الإعاقة في الوصول إلى المعرفة والمعلومات الموثوقة</p>
 <div class="footer-social">
-<button class="footer-social-btn" aria-label="تويتر"><svg class="ico" style="width:16px;height:16px"><use href="#ic-globe"/></svg></button>
-<button class="footer-social-btn" aria-label="لينكد إن"><svg class="ico" style="width:16px;height:16px"><use href="#ic-users"/></svg></button>
-<button class="footer-social-btn" aria-label="يوتيوب"><svg class="ico" style="width:16px;height:16px"><use href="#ic-heart"/></svg></button>
+<a href="http://x.com/wesalhub" target="_blank" class="footer-social-btn" aria-label="X (تويتر)"><svg class="ico" style="width:16px;height:16px"><use href="#ic-globe"/></svg></a>
+<a href="https://www.instagram.com/wesalhub" target="_blank" class="footer-social-btn" aria-label="إنستقرام"><svg class="ico" style="width:16px;height:16px"><use href="#ic-heart"/></svg></a>
+<a href="https://www.linkedin.com/company/wesalhub" target="_blank" class="footer-social-btn" aria-label="لينكد إن"><svg class="ico" style="width:16px;height:16px"><use href="#ic-users"/></svg></a>
+<a href="https://api.whatsapp.com/send?phone=966501120161" target="_blank" class="footer-social-btn" aria-label="واتس آب"><svg class="ico" style="width:16px;height:16px"><use href="#ic-phone"/></svg></a>
 </div>
 </div>
 <div>
@@ -926,15 +951,17 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 <button class="footer-link">الأسئلة الشائعة</button>
 </div>
 <div>
-<h4>تواصل</h4>
-<p style="font-size:var(--f-sm);margin-bottom:var(--s2)"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="11787f777e51667462707d3f6270">[email&#160;protected]</a></p>
-<p style="font-size:var(--f-sm);margin-bottom:var(--s2)">٩٢٠٠١٢٣٤٥</p>
-<p style="font-size:var(--f-sm)">الأحد - الخميس، ٨ ص - ٦ م</p>
+<h4>تواصل معنا</h4>
+<p style="font-size:var(--f-sm);margin-bottom:var(--s2)"><a href="mailto:info@wesal-hub.com" style="color:rgba(255,255,255,.7);text-decoration:none;transition:color .3s">info@wesal-hub.com</a></p>
+<p style="font-size:var(--f-sm);margin-bottom:var(--s2)"><a href="https://api.whatsapp.com/send?phone=966501120161" target="_blank" style="color:rgba(255,255,255,.7);text-decoration:none;transition:color .3s"><span class="footer-num">+966 50 112 0161</span></a></p>
+<p style="font-size:var(--f-sm)">السبت - الخميس<br><span class="footer-num">08:00 AM - 06:00 PM</span></p>
 </div>
 </div>
-<div class="footer-bottom">
-<span>© ٢٠٢٦ وصال — جميع الحقوق محفوظة</span>
-<span>صُمم بعناية لخدمة الجميع</span>
+<div class="footer-bottom" style="flex-direction:column;align-items:center;text-align:center;gap:var(--s4)">
+<div style="border-top:1px solid rgba(255,255,255,.1);padding-top:var(--s4);width:100%">
+<p style="font-size:var(--f-sm);margin-bottom:var(--s2)"><span class="footer-num">© 2026</span> وصال — جميع الحقوق محفوظة لـ وصال</p>
+<p style="font-size:var(--f-xs);color:rgba(255,255,255,.5)">صُمم بعناية وحب لخدمة الجميع | منصة ذكاء اصطناعي مُيسّرة للجميع</p>
+</div>
 </div>
 </div>
 </footer>
@@ -951,9 +978,24 @@ select.form-input{appearance:none;background-image:url("data:image/svg+xml,%3Csv
 </div>
 <button class="fab-btn" onclick="toggleA11y()" aria-label="إعدادات إمكانية الوصول"><svg class="ico"><use href="#ic-a11y"/></svg></button>
 </div>
+
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 let _fs=100,_rec=null,_curPage='home';
-const pages=['home','chat','settings','dashboard','resources','about','contact'];
+
+// تبديل الشعار حسب الوضع
+function updateLogo(){
+const logoImg=document.getElementById('navLogoImg');
+if(!logoImg)return;
+const contrast=document.documentElement.getAttribute('data-contrast')||'';
+const isDark=contrast==='dark';
+if(isDark){
+logoImg.src='https://drive.google.com/uc?id=1DX5ioC9PpTpZM5XW1KJB1lJ-DTYXCeau';
+}else{
+logoImg.src='https://drive.google.com/uc?id=1X-xT-XnygeIW8q5ox3Z7NSntkcnJebwD';
+}
+}
+// تم إضافة auth إلى قائمة الصفحات
+const pages=['home','chat','settings','dashboard','resources','about','contact','auth'];
 const replies=[
 'بناءً على الأنظمة السارية في المملكة العربية السعودية، يحق للأشخاص ذوي الإعاقة الحصول على فرص عمل متكافئة. يلزم نظام العمل أصحاب العمل بتوفير بيئة عمل مُيسّرة وتهيئة المرافق وفقاً لاحتياجات الموظفين من ذوي الإعاقة. كما يُحظر التمييز في التوظيف على أساس الإعاقة.',
 'للحصول على بطاقة الإعاقة، يمكنك التقدم عبر منصة "موعد" الإلكترونية أو زيارة أقرب مركز للتأهيل الشامل. ستحتاج إلى تقرير طبي حديث وصورة من الهوية الوطنية. تستغرق العملية عادةً من أسبوعين إلى شهر.',
@@ -982,6 +1024,9 @@ document.getElementById('nav').classList.add('scrolled');
 setTimeout(initAnims,100);
 }
 
+// تصدير دوال الواجهة ليتم استخدامها من الفايربيس
+window.go = go;
+
 function toggleMob(){
 const m=document.getElementById('mobMenu'),o=document.getElementById('mobOverlay'),b=document.getElementById('burger');
 const open=m.classList.toggle('open');
@@ -989,6 +1034,7 @@ o.classList.toggle('open',open);
 b.classList.toggle('active',open);
 b.setAttribute('aria-expanded',open);
 }
+window.toggleMob = toggleMob;
 
 // Scroll
 window.addEventListener('scroll',()=>{
@@ -1012,6 +1058,7 @@ document.documentElement.setAttribute('data-contrast',mode||'');
 document.querySelectorAll('#contrastBtns .setting-btn').forEach((b,i)=>{
 b.classList.toggle('on',(mode===''&&i===0)||(mode==='high'&&i===1)||(mode==='dark'&&i===2));
 });
+updateLogo();
 }
 
 // Chat
@@ -1128,10 +1175,103 @@ if(document.getElementById('mobMenu').classList.contains('open'))toggleMob();
 
 // Init
 document.addEventListener('DOMContentLoaded',()=>{
+updateLogo();
 initAnims();
 // Trigger hero anims immediately
 setTimeout(()=>{document.querySelectorAll('.hero .anim').forEach(el=>el.classList.add('in'));},100);
 });
+</script>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyB6_eOeCqkbmHwBI1YGNd3OnWY-0qPkcl4",
+    authDomain: "wesalhub.firebaseapp.com",
+    projectId: "wesalhub",
+    storageBucket: "wesalhub.firebasestorage.app",
+    messagingSenderId: "417138606246",
+    appId: "1:417138606246:web:cc4aaa0703df5fbd79b467"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+
+  let isLoginMode = true; 
+
+  window.toggleAuthMode = function() {
+    isLoginMode = !isLoginMode;
+    document.getElementById('authTitle').innerText = isLoginMode ? 'تسجيل الدخول' : 'إنشاء حساب جديد';
+    document.getElementById('authSubmitBtn').innerText = isLoginMode ? 'دخول' : 'تسجيل حساب';
+    document.getElementById('authToggleLink').innerText = isLoginMode ? 'ليس لديك حساب؟ سجل الآن' : 'لديك حساب بالفعل؟ سجل دخولك';
+    document.getElementById('authError').style.display = 'none';
+  };
+
+  window.handleAuth = function() {
+    const email = document.getElementById('authEmail').value;
+    const password = document.getElementById('authPassword').value;
+    const errorDiv = document.getElementById('authError');
+    const submitBtn = document.getElementById('authSubmitBtn');
+    
+    errorDiv.style.display = 'none';
+    submitBtn.innerText = 'جاري التحميل...';
+    submitBtn.disabled = true;
+
+    if(isLoginMode) {
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          document.getElementById('authForm').reset();
+          window.go('dashboard');
+        })
+        .catch((error) => {
+          errorDiv.innerText = "خطأ: تأكد من صحة البريد الإلكتروني وكلمة المرور.";
+          errorDiv.style.display = 'block';
+        })
+        .finally(() => {
+          submitBtn.innerText = 'دخول';
+          submitBtn.disabled = false;
+        });
+    } else {
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          document.getElementById('authForm').reset();
+          window.go('dashboard');
+        })
+        .catch((error) => {
+          errorDiv.innerText = "خطأ: تأكد من إدخال بريد صحيح وأن كلمة المرور أكثر من 6 أحرف.";
+          errorDiv.style.display = 'block';
+        })
+        .finally(() => {
+          submitBtn.innerText = 'تسجيل حساب';
+          submitBtn.disabled = false;
+        });
+    }
+  };
+
+  onAuthStateChanged(auth, (user) => {
+    const navBtn = document.getElementById('navAuthBtn');
+    const mobBtn = document.getElementById('mobAuthBtn');
+    if (user) {
+      if(navBtn) { 
+        navBtn.innerText = 'تسجيل الخروج'; 
+        navBtn.onclick = () => { signOut(auth).then(() => { window.go('home'); }); }; 
+      }
+      if(mobBtn) { 
+        mobBtn.innerText = 'تسجيل الخروج'; 
+        mobBtn.onclick = () => { signOut(auth).then(() => { window.go('home'); window.toggleMob(); }); }; 
+      }
+    } else {
+      if(navBtn) { 
+        navBtn.innerText = 'تسجيل الدخول'; 
+        navBtn.onclick = () => { window.go('auth'); }; 
+      }
+      if(mobBtn) { 
+        mobBtn.innerText = 'تسجيل الدخول'; 
+        mobBtn.onclick = () => { window.go('auth'); window.toggleMob(); }; 
+      }
+    }
+  });
 </script>
 </body>
 </html>
